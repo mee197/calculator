@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>测试页面</title>
+</head>
+<span th:text="${username}"></span>
+<body>
+    <form id = testform action="topic">
+    <input type = submit value = "我要答题">
+    </form>
+    <form action="topic1">
+    <div>
+<span th:text = "${a}">2</span><span th:text = "${b}">+</span><span th:text = "${c}"><p id="opop">4</p></span> = <input type="text" id = answer name = answer>
+    </div>
+        <input type = submit value = "提交">
+    </form>
+</body>
+</html>
