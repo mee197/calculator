@@ -1,0 +1,25 @@
+var data = [{
+	"id":"1",
+	"username":"zhangsan",
+	"score":"1258"
+},{
+	"id":"2",
+	"username":"zhangsan",
+	"score":"1258"
+},{
+	"id":"3",
+	"username":"zhangsan",
+	"score":"1258"
+},{
+	"id":"4",
+	"username":"zhangsan",
+	"score":"1258"
+},{
+	"id":"5",
+	"username":"zhangsan",
+	"score":"1258"
+},{
+	"id":"6",
+	"username":"zhangsan",
+	"score":"1258"
+}]

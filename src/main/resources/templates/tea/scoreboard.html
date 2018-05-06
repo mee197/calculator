@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>积分榜</title>
+		<!--<link rel="stylesheet" href="../../static/css/bootstrap.min.css" />-->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!--<link rel="stylesheet" href="../../static/css/font-awesome.min.css" />-->
+		<link rel="stylesheet" href="/styles/css/nav.css" />
+		<link rel="stylesheet" href="/styles/css/table.css" />
+		<style>
+			.scoreboard-body {
+				max-width: 800px;
+				margin: 40px auto 0;
+			}
+			
+			#histroyBox{
+				border: 2px solid #17a2b8!important;
+			}
+			
+			.table thead{
+				margin-top: 0;
+				background-color: #17a2b8!important;
+				color: white;
+			}
+			
+			.table thead th{
+				border-top: 0;
+			}
+		</style>
+		<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+		<!--<script type="text/javascript" src="../../static/js/jquery.min.js"></script>-->
+		<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>-->
+		<script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="/scripts/front-endPage.js"></script>
+		<!--<script type="text/javascript" src="../../static/js/shujv2.js"></script>-->
+		<script type="text/javascript" src="/scripts/scoreboard.js" ></script>
+		<script type="text/javascript">
+			//			var username = $(".self strong");
+			//			username.text(localStorage.username);
+		</script>
+	</head>
+
+	<body>
+
+		<!--导航条-->
+		<div class="selfnav">
+			<!--左侧logo及站名-->
+			<div class="navleft">
+				<img src="/images/logo.png" />
+			</div>
+
+			<!--右侧功能导航与个人中心-->
+			<div class="navright">
+				<!--右侧功能-->
+				<ul class="nav-topic">
+					<li id="item">
+						<a id="nav-index" href="index.html">首页</a>
+					</li>
+					<li id="item">
+						<a id="nav-exams" href="makepaper.html">我要出题</a>
+					</li>
+					<li id="item">
+						<a id="nav-exams" class="nav-active" href="scoreboard.html">积分榜</a>
+					</li>
+					<li id="item">
+						<!--我的和注销-->
+						<span class="self">
+								您好！
+								<a href="#">林枫</a>
+								<ul class="infomodels">
+									<li>
+						<a href="self.html">个人中心</a>
+					</li>
+					<li>
+						<a href="modifypwd.html">修改密码</a>
+					</li>
+					<li>
+						<a href="javascript:(0);">退出</a>
+					</li>
+				</ul>
+				</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--主页内容-->
+		<div class="page-body">
+
+			<div class="scoreboard">
+				<div class="scoreboard-body">
+
+					<div id="histroyBox"></div>
+
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.loli.net/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+		<!--<script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>-->
+		<script type="text/javascript" src="/scripts/nav.js"></script>
+		<script>
+			//前台分页的样子
+			$('#histroyBox').CJJTable({
+				'title': ["名次", "用户名", "积分"], //thead中的标题 必填
+				'body': ["id", "username", "score"], //tbody td 取值的字段 必填
+				'display': [1, 1, 1], //隐藏域，1显示，2隐藏 必填
+				'pageNUmber': 5, //每页显示的条数 选填
+				'pageLength': data.length, //选填
+				'url': data, //数据源 必填
+				dbTrclick: function(e) { //双击tr事件
+					alert(e.find('.taskCode').html())
+				}
+			});
+			//后台分页的样子
+			/*$('#histroyBox').CJJTable({
+			    'title':["装点","卸点","运输货物","下单日期"],//thead中的标题 必填
+			    'body':["contactName","contactMobliePhone","carrierName","taskNum","taskCustomerExpectPrice","taskCustomerBudgetFreight"],//tbody td 取值的字段 必填
+			    'display':[1,1,1,1,2,2],//隐藏域，1显示，2隐藏 必填
+			    'pageJson':{
+			        "taskId":528710,
+			        "pageSize":100,//ajax请求参数中的每页展示数量 选填
+			        "token":"yJUmunFeG3REqisYAmCfeA"
+			    },
+			    'url':'/api/quoted/quotedList',//数据源 必填
+			    dbTrclick:function(that){ //双击tr事件
+			        alert(that.find('.contactName').html())
+			    }
+			});*/
+		</script>
+	</body>
+
+</html>

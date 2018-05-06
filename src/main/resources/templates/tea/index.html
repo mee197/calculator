@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>好学堂</title>
+		<!--<link rel="stylesheet" href="../../static/css/bootstrap.min.css" />-->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="/styles/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/styles/css/nav.css" />
+		<!--<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">-->
+		<style>
+			.index-body{
+				max-width: 1000px;
+				margin: 0 auto ;
+			}
+			
+			.exams-header {
+				margin: 40px 0;
+				background-color: #F7F5F7;
+				/*background-color: #007bff!important;*/
+				/*border: 1px solid #e6ebf5;*/
+				border: 2px solid #007bff!important;
+				height: 70px;
+				width: 100%;
+				line-height: 70px;
+				letter-spacing: 20px;
+				/*color: white;*/
+				font-family: "微软雅黑";
+				font-weight:bold;
+				color: #007bff!important;
+			}
+			
+			.table-responsive{
+				border: 2px solid #007bff!important;
+			}
+			
+			.exams-info .table thead th{
+				border-top: 0;
+				background-color: #007bff!important;
+				color: white;
+			}
+			
+			.exams-footer {
+				margin: 30px 0;
+			}
+			
+			.exams-footer .line {
+				display: inline-block;
+				width: 200px;
+				border-top: 1px solid #ccc;
+			}
+			
+			.exams-footer .txt {
+				color: #686868;
+				vertical-align: middle;
+				font-size: 20px;
+			}
+		</style>
+		<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+		<!--<script type="text/javascript" src="../../static/js/jquery.min.js"></script>-->
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			var username = $(".self strong");
+			username.text(localStorage.username);
+		</script>
+	</head>
+
+	<body>
+		<!--导航条-->
+		<div class="selfnav">
+			<!--左侧logo及站名-->
+			<div class="navleft">
+				<img src="/images/logo.png" />
+			</div>
+
+			<!--右侧功能导航与个人中心-->
+			<div class="navright">
+				<!--右侧功能-->
+				<ul class="nav-topic">
+					<li id="item">
+						<a id="nav-index" class="nav-active" href="index.html">首页</a>
+					</li>
+					<li id="item">
+						<a id="nav-exams" href="makepaper.html">我要出题</a>
+					</li>
+					<li id="item">
+						<a id="nav-exams" href="scoreboard.html">积分榜</a>
+					</li>
+					<li id="item">
+						<!--我的和注销-->
+						<span class="self">
+								您好！
+								<a href="#">林枫</a>
+								<ul class="infomodels">
+									<li>
+						<a href="self.html">个人中心</a>
+					</li>
+					<li>
+						<a href="modifypwd.html">修改密码</a>
+					</li>
+					<li>
+						<a href="javascript:(0);">退出</a>
+					</li>
+				</ul>
+				</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--主页内容-->
+		<div class="page-body">
+			<div class="tea-index">
+				<div class="index-body">
+					
+					<!--教师出题头模块-->
+					<div class="exams-header">
+						<p>
+							<h2>全部试卷</h2>
+						</p>
+					</div>
+
+					<!--教师出题信息模块-->
+					<div class="exams-info">
+						<div class="table-responsive">
+							<!--<table class="table table-hover">-->
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>试题编号</th>
+										<th>出卷时间</th>
+										<th>题目数量</th>
+										<th>限制时间</th>
+										<th>试卷总分</th>
+										<!--<th>操作</th>-->
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>123456789</td>
+										<td>2018-04-20</td>
+										<td>20道</td>
+										<td>30分钟</td>
+										<td>100分</td>
+										<!--<td>
+											<a href="examine.html">开始考试</a>
+										</td>-->
+									</tr>
+									<tr>
+										<td>123456789</td>
+										<td>2018-04-20</td>
+										<td>20道</td>
+										<td>30分钟</td>
+										<td>100分</td>
+										<!--<td>
+											<a href="examine.html">开始考试</a>
+										</td>-->
+									</tr>
+									<tr>
+										<td>123456789</td>
+										<td>2018-04-20</td>
+										<td>20道</td>
+										<td>30分钟</td>
+										<td>100分</td>
+										<!--<td>
+											<a href="examine.html">开始考试</a>
+										</td>-->
+									</tr>
+									<tr>
+										<td>123456789</td>
+										<td>2018-04-20</td>
+										<td>20道</td>
+										<td>30分钟</td>
+										<td>100分</td>
+										<!--<td>
+											<a href="examine.html">开始考试</a>
+										</td>-->
+									</tr>
+									<tr>
+										<td>123456789</td>
+										<td>2018-04-20</td>
+										<td>20道</td>
+										<td>30分钟</td>
+										<td>100分</td>
+										<!--<td>
+											<a href="examine.html">开始考试</a>
+										</td>-->
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<!--底部提示-->
+					<div class="exams-footer">
+						<span class="line"></span>
+						<span class="txt">哎嘿，到底了咯！</span>
+						<span class="line"></span>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.loli.net/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+		<!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+		<!--<script src="http://www.jq22.com/jquery/angular-1.4.6.js"></script>-->
+		<script type="text/javascript" src="/scripts/nav.js"></script>
+	</body>
+
+</html>

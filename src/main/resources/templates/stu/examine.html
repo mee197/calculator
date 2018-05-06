@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>考试中……</title>
+		<!--<link rel="stylesheet" href="../../static/css/bootstrap.min.css" />-->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="/styles/css/font-awesome.min.css" />
+		<!--<link rel="stylesheet" href="../../static/css/nav.css" />-->
+		<link rel="stylesheet" href="/styles/css/problems.css" />
+		<!--<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">-->
+		<style>
+			
+			/*滚动条样式*/
+			body::-webkit-scrollbar {
+				/*滚动条整体样式*/
+				width: 8px;
+				/*高宽分别对应横竖滚动条的尺寸*/
+				height: 8px;
+			}
+			
+			body::-webkit-scrollbar-thumb {
+				/*滚动条里面小方块*/
+				border-radius: 2rem;
+				/*-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);*/
+				background: #F90;
+				background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent)
+			}
+			
+			body::-webkit-scrollbar-track {
+				/*滚动条里面轨道*/
+				/*-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);*/
+				border-radius: 2rem;
+				background-color: transparent;
+			}
+			
+			.examine-body {
+				max-width: 700px;
+				margin: 40px auto 0;
+			}
+			
+			.examine-body-left {
+				text-align: left;
+			}
+			
+			.examine-footer {
+				text-align: center;
+			}
+			
+			.examine-footer button {
+				margin: 20px;
+				font-size: 24px;
+			}
+			
+			.examine-body-right {
+				position: fixed;
+				right: 0;
+				top: 50%;
+				z-index: 1000;
+				margin-top: -100px;
+				width: 200px;
+				height: 200px;
+				border: 1px solid #28a745!important;
+			}
+			
+			.floating-window {
+				width: 100%;
+				height: 100%;
+				/*background-color: #EEEEEE;*/
+				border: 1px solid #28a745!important;
+				text-align: center;
+			}
+			
+			.floating-window .time-module {
+				padding-top: 10px;
+				height: 70%;
+				width: 100%;
+				font-weight: 800;
+				border: 1px solid #28a745!important;
+			}
+			
+			.time-module .time-lable {
+				font-size: 26px;
+				color: gray;
+			}
+			
+			.time-module .time-value {
+				font-size: 30px;
+				color: #28a745!important;
+			}
+			
+			.floating-window .button-module {
+				padding-top: 7px;
+				height: 30%;
+				width: 100%;
+				border: 1px solid #28a745!important;
+			}
+			
+			.button-module button {
+				font-size: 20px;
+			}
+			
+			.cover {
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 999;
+				width: 100%;
+				height: 100%;
+				background-color: gray;
+				opacity: 0.5;
+			}
+		</style>
+		<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+		<!--<script type="text/javascript" src="../../static/js/jquery.min.js"></script>-->
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			var username = $(".self strong");
+			username.text(localStorage.username);
+		</script>
+	</head>
+
+	<body>
+
+		<!--主页内容-->
+		<div class="page-body">
+			<div class="stu-examine">
+				<div class="examine-body">
+
+					<!--左侧试题-->
+					<div class="examine-body-left">
+						<!--选择题-->
+						<div class="card">
+							<div class="card-body">
+								<!--题目-->
+								<p class="select-question" id="">
+									<!--题号-->
+									<span style="color: #28a745!important">1.</span>
+									<!--题目内容-->
+									<span>3+4=(&nbsp;)</span> （选择题，1分）
+								</p>
+								<!--选项-->
+								<p class="select-answer" id="">
+									<span>
+									<input type="radio" id="" name="radio_1" />
+									<label>A、3</label>
+								</span>
+									<span>
+									<input type="radio" id="" name="radio_1" />
+									<label>B、4</label>
+								</span>
+									<span>
+									<input type="radio" id="" name="radio_1" />
+									<label>C、6</label>
+								</span>
+									<span>
+									<input type="radio" id="" name="radio_1" />
+									<label>D、7</label>
+								</span>
+								</p>
+								<!--答案解析-->
+								<!--<p class="analysis">
+								<span>第1题您填的答案是：B&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span>错误！</span>
+								<span>正确答案：A</span>
+							</p>-->
+							</div>
+						</div>
+
+						<!--填空题-填结果-->
+						<div class="card">
+							<div class="card-body">
+								<!--题目、答案-->
+								<p class="fill-question">
+									<!--题号-->
+									<span style="color: #28a745!important;">2.</span>
+									<!--题目内容-->
+									<span>
+									3+4=<input type="number"></input>
+								</span> （填空题，1分）
+								</p>
+								<!--答案解析-->
+								<!--<p class="analysis">
+								<span>第2题您填的答案是：5&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span>错误！</span>
+								<span>正确答案：7</span>
+							</p>-->
+							</div>
+						</div>
+
+						<!--填空题-填因数-->
+						<div class="card">
+							<div class="card-body">
+								<!--题目、答案-->
+								<p class="vertical-question">
+									<!--题号-->
+									<span class="qid" style="color: #28a745!important;">3.</span>
+									<!--题目内容-->
+									<span class="theme">
+									3+<input type="number"></input>=4
+								</span> （填空题，1分）
+								</p>
+								<!--答案解析-->
+								<!--<p class="analysis">
+								<span>第1题您填的答案是：B&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span>错误！</span>
+								<span>正确答案：A</span>
+							</p>-->
+							</div>
+						</div>
+
+						<!--填空题-填结果-->
+						<div class="card">
+							<div class="card-body">
+								<!--题目、答案-->
+								<p class="fill-question">
+									<!--题号-->
+									<span style="color: #28a745!important;">4.</span>
+									<!--题目内容-->
+									<span>
+									8+7=<input type="number"></input>
+								</span> （填空题，1分）
+								</p>
+								<!--答案解析-->
+								<!--<p class="analysis">
+								<span>第1题您填的答案是：B&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span>错误！</span>
+								<span>正确答案：A</span>
+							</p>-->
+							</div>
+						</div>
+
+						<!--填空题-填结果-->
+						<div class="card">
+							<div class="card-body">
+								<!--题目、答案-->
+								<p class="fill-question">
+									<!--题号-->
+									<span style="color: #28a745!important;">5.</span>
+									<!--题目内容-->
+									<span>
+									12-5+4=<input type="number"></input>
+								</span> （填空题，1分）
+								</p>
+								<!--答案解析-->
+								<!--<p class="analysis">
+								<span>第1题您填的答案是：B&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<span>错误！</span>
+								<span>正确答案：A</span>
+							</p>-->
+							</div>
+						</div>
+
+						<!--底部按钮-->
+						<div class="examine-footer">
+							<button type="button" class="btn btn-danger" id="end-bottom">提交答卷</button>
+						</div>
+
+					</div>
+
+					<!--右侧悬浮窗-->
+					<div class="examine-body-right">
+						<div class="floating-window">
+
+							<!--时间模块-->
+							<div class="time-module">
+								<p class="time-lable">
+									<label>距考试结束</label>
+								</p>
+								<p class="time-value">
+									<span>00:20:00</span>
+								</p>
+							</div>
+
+							<!--提交按钮-->
+							<div class="button-module">
+								<button type="button" class="btn btn-info" id="begin">开始答题</button>
+								<button type="button" class="btn btn-danger" id="end-right" style="display: none;">提交答卷</button>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!--遮罩层-->
+		<div class="cover"></div>
+
+		<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.loli.net/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+		<!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+		<!--<script type="text/javascript" src="../../static/js/nav.js"></script>-->
+		<script>
+			//定义倒计时长(秒)
+			var maxtime = 20 * 60;
+			
+			//计时器
+			var timer;
+			
+			//剩余时间信息
+			var msg;
+
+			//禁止滑动条滑动
+			$('body').css('overflow', 'hidden');
+
+			/**
+			 * 点击”开始答题“，答题开始
+			 */
+			$("#begin").click(function() {
+				
+				//修改按钮样式
+				$(this).css("display","none");
+				$("#end-right").css("display","inline-block");
+
+				//恢复滚动条
+				$('body').css('overflow', 'inherit');
+
+				//去除遮罩层
+				$(".cover").css("display", "none");
+
+				//开启倒计时
+				timer = setInterval("change()", 1000);
+			});
+			
+			
+			/**
+			 * 点击“提交答卷”，提交试卷，答案分析，查看成绩
+			 */
+			$(".btn-danger").click(function(){
+				
+				//清楚计时器
+				clearInterval(timer);
+				
+				//倒计时归零
+				$(".time-value span").text("00:00:00");
+				
+				//跳转至查看成绩页面
+				window.location.href = "grade.html";
+			});
+
+			/**
+			 * 倒计时
+			 */
+			function change() {
+				if(maxtime >= 0) {
+					minutes = Math.floor(maxtime / 60);
+					seconds = Math.floor(maxtime % 60);
+					if(minutes < 10) {
+						if(seconds < 10) {
+							msg = "00:0" + minutes + ":0" + seconds;
+						} else {
+							msg = "00:0" + minutes + ":" + seconds;
+						}
+					} else {
+						if(seconds < 10) {
+							msg = "00:" + minutes + ":0" + seconds;
+						} else {
+							msg = "00:" + minutes + ":" + seconds;
+						}
+					}
+
+					$(".time-value span").text(msg);
+					if(maxtime == 5 * 60) {
+						alert("还剩5分钟");
+					}
+					--maxtime;
+				} else {
+					clearInterval(timer);
+					alert("时间到，结束!");
+				}
+			}
+		</script>
+	</body>
+
+</html>

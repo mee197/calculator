@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+		<meta name="Author" content="cxp">
+		<meta name="Date" content="2015-02-04">
+		<meta name="renderer" content="webkit">
+		<title>见缝插针</title>
+		<!-- AA -->
+		<style type="text/css">
+			html,
+			body {
+				padding: 0;
+				margin: 0;
+				border: 0;
+				overflow: hidden;
+				text-align: center;
+				background-color: #EEEEEE;
+				/*background-color: burlywood;*/
+				/*background-color: white;*/
+				/*background-image: url(../../../static/img/bgk.jpg);*/
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				user-select: none;
+			}
+			
+			body {
+				overflow: visible;
+			}
+			/* for Android Native Browser bug */
+			
+			.game-needle{
+				width: 320px;
+				height: 480px;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+			}
+			
+			canvas {
+				/*background-color: #aaa;*/
+				/*background-color: burlywood;*/
+				vertical-align: middle;
+				opacity: 1;
+				/*border-top: solid 1px #000;*/
+			}
+			
+			/*.title {
+				font-size: 24px;
+				font-family: 微软雅黑, 黑体;
+				color: #000;
+				color: chartreuse;
+				letter-spacing: 4px;
+				margin-bottom: 10px;
+			}*/
+			
+			@media all and (min-width: 480px) and (max-height: 479px) {
+				canvas {
+					-webkit-transform: translateY(-80px) rotate(-90deg);
+					-moz-transform: translateY(-80px) rotate(-90deg);
+					transform: translateY(-80px) rotate(-90deg);
+					border-top: 0;
+					border-right: solid 1px #000;
+				}
+			}
+		</style>
+		<!-- for 360 browser -->
+	</head>
+
+	<body>
+		<div class="game-needle">
+			<canvas id="canvas1" width="320px" height="480px"></canvas>
+		</div>
+		
+		<script src="../../../static/js/MyCtx.min.js"></script>
+		<script src="../../../static/js/aa.cc.min.js"></script>
+
+	</body>
+
+</html>

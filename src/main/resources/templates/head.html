@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<style type="text/css">
+    html{height:100%;}
+    body{min-height:100%;margin:0;padding:0;position:relative;}
+
+    .header{background-color: #ffe4c4;}
+    .main{padding-bottom:100px;background-color: #bdb76b;}/* main的padding-bottom值要等于或大于footer的height值 */
+    .footer{position:absolute;bottom:0;width:100%;height:100px;background-color: #ffc0cb;}
+    .land-bg a{
+        float: right;
+    }
+</style>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/style.css">
+    <script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/scripts/jquery.leanModal.min.js"></script>
+    <title>欢迎答题</title>
+</head>
+<div class = header>
+    <header>
+        <div id="w">
+        <div id="content">
+           <a style="float: right" href="#loginmodal" class="flatbtn" id="modaltrigger">登陆</a>
+        </div>
+    </div>
+        <div id="loginmodal" style="display:none;">
+            <h1>用户登陆</h1>
+            <form id="loginform" name="loginform" method="post" action="">
+                <label for="username">用户名:</label>
+                <input type="text" name="username" id="username" class="txtfield" tabindex="1">
+
+                <label for="password">密码:</label>
+                <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+
+                <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="登陆" tabindex="3"></div>
+            </form>
+        </div>
+        <script type="text/javascript">
+            $(function(){
+                $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+                $('#loginbtn').click(function(){
+                    $.ajax({
+                        type:"post",
+                        url:"/login/",
+                        dataType:"json",
+                        data:{
+                            username:$('#username').val(),
+                            password:$('#password').val()},
+                        succsee:function (data) {
+                            if(data == false){
+                                alert("登录失败");
+                            }
+                            else{
+                                alert(username);
+                            }
+                        }
+                    })
+                });
+            });
+        </script>
+    </header>
+</div>

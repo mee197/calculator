@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+#whale {
+	height: 99.5%;
+	width: 100%;
+	/*background-image: url(http://4493bz.1985t.com/uploads/allimg/140901/4-140Z1151K9.jpg);*/
+	background-color: #EEEEEE;
+}

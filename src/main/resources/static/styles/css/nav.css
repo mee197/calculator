@@ -1,0 +1,124 @@
+body {
+	/*background-image: url(../../static/img/bgk.jpg);*/
+	/*background-size: 100%;*/
+	/*background-color: orange;*/
+}
+
+
+/*滚动条样式*/
+
+body::-webkit-scrollbar {
+	/*滚动条整体样式*/
+	width: 8px;
+	/*高宽分别对应横竖滚动条的尺寸*/
+	height: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+	/*滚动条里面小方块*/
+	border-radius: 2rem;
+	/*-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);*/
+	background: #F90;
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent)
+}
+
+body::-webkit-scrollbar-track {
+	/*滚动条里面轨道*/
+	/*-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);*/
+	border-radius: 2rem;
+	background-color: transparent;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.selfnav {
+	position: fixed;
+	top: 0;
+	z-index: 998;
+	background-color: white;
+	/*background-image: url(../../static/img/bgk.jpg);*/
+	border-bottom: 1px solid gainsboro;
+	width: 100%;
+	height: 90px;
+	line-height: 90px;
+	font-weight: 600;
+	font-family: "courier new";
+	font-size: 20px;
+}
+
+.navleft img {
+	position: absolute;
+	width: 160px;
+	height: 50px;
+	top: 20px;
+	left: 50px;
+}
+
+.navright {
+	float: right;
+}
+
+.nav-topic {
+	margin-right: 50px;
+}
+
+.nav-topic li {
+	display: inline-block;
+	margin-left: 60px;
+}
+
+.nav-topic li a {
+	/*color: white;*/
+}
+
+.nav-active,
+.nav-topic li a:hover {
+	color: orangered;
+}
+
+.infomodels {
+	margin: 0;
+	padding: 0;
+	/*去除li标签前方的空白*/
+	list-style: none;
+	position: absolute;
+	right: 50px;
+	border-left: 1px solid gainsboro;
+	border-right: 1px solid gainsboro;
+	background-color: white;
+	display: none;
+}
+
+li:hover .infomodels {
+	display: block;
+}
+
+.infomodels li {
+	margin: 0;
+	padding: 5px 20px;
+	display: block;
+	border-bottom: 1px solid gainsboro;
+	height: 50px;
+	line-height: 40px;
+}
+
+.infomodels li a {
+	/*color: gray;*/
+	color: #25C6FC;
+}
+
+.infomodels li:hover {
+	/*background: gainsboro;*/
+	background-color: #EEE;
+	color: darkorange;
+}
+
+.page-body {
+	position: absolute;
+	top: 90px;
+	left: 0;
+	right: 0;
+	text-align: center;
+}

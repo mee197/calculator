@@ -1,0 +1,81 @@
+ul,li{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.table .clearfix {
+    clear: both;
+}
+
+.table .pagenumberBox {
+    float: left;
+}
+
+.table .pagenumberBox li {
+    float: left;
+    padding: 0 9px;
+    border: 1px solid #d9d9d9;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer; /* 光标样式  */
+    color: #333;
+}
+
+.table .pagenumberBox li:hover {
+    background: #ff6666 !important;
+    padding: 0 10px !important;
+    color: white !important;
+    border: none !important;
+}
+
+.table .pagenumberBoxLi {
+    background: #ff6666 !important;
+    padding: 0 10px !important;
+    color: white !important;
+    border: none !important;
+}
+
+.table tfoot span {
+    padding: 0 9px;
+    border: 1px solid #d9d9d9;
+    color: #333;
+}
+
+.table tfoot span:hover {
+    background: #ff6666 !important;
+    padding: 0 10px !important;
+    color: white !important;
+    border: none !important;
+}
+
+.table .tfootRight input {
+    width: 90px;
+    padding-left: 5px;
+    height: 25px;
+    border: 1px solid #d9d9d9;
+    color: #333;
+}
+
+.table .tfootRight button {
+    width: 60px;
+    height: 25px;
+    border: 1px solid #d9d9d9;
+    color: #333;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.table .tfootRight button:hover {
+    background: #ff6666 !important;
+    height: 27px;
+    color: white !important;
+    border: none !important;
+}
+
+.table tfoot select{
+    width: 80px;
+    padding-left: 10px;
+    height: 25px;
+    border: 1px solid #d9d9d9;
+    color: #333;
+}

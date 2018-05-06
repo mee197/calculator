@@ -1,0 +1,73 @@
+.card {
+	float: left;
+	/*margin-right: 50px;*/
+	margin-top: 20px;
+	width: 100%;
+	padding-left: 20px;
+}
+
+.card input {
+	text-align: center;
+	color: #ffc107!important;
+}
+
+.analysis {
+	margin-bottom: 0;
+	font-size: 20px;
+}
+
+.select-question {
+	font-size: 24px;
+	font-weight: 600;
+	letter-spacing: 5px;
+}
+
+.select-answer {
+	margin: 0;
+	font-size: 22px;
+}
+
+.select-answer p {
+	height: 30px;
+	width: 300px;
+	border: 1px solid #888888;
+}
+
+.select-answer span {
+	margin-right: 50px;
+}
+
+.select-answer span input {
+	width: 20px;
+	height: 20px;
+}
+
+.fill-question {
+	font-weight: 600;
+	font-size: 24px;
+	/*margin: 0;*/
+	letter-spacing: 5px;
+}
+
+.fill-question input {
+	width: 100px;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	outline: medium;
+}
+
+.vertical-question {
+	font-weight: 600;
+	font-size: 24px;
+	/*margin-bottom: 0;*/
+	letter-spacing: 5px;
+}
+
+.vertical-question input {
+	width: 100px;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	outline: medium;
+}
