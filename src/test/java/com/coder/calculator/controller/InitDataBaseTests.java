@@ -23,7 +23,7 @@ public class InitDataBaseTests {
 		Random random = new Random();
 		for (int i = 0; i < 11; ++i) {
 			User user = new User();
-			user.setUserame(String.format("USER%d", i));
+			user.setUsername(String.format("USER%d", i));
 			user.setPassword("123456");
 			userDAO.addUser(user);
 		}

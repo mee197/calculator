@@ -1,5 +1,279 @@
-#parse("head.html")
+<!DOCTYPE html>
+<html>
 
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/styles/css/index.css" />
+		<title>好学堂</title>
+		<style>
+			body{
+				background-image: url(/images/bgk2.jpg);
+				background-size: 100%;
+			}
+			
+			.nav {
+				position: fixed;
+				top: 0;
+				z-index: 999;
+				/*background-color: white;
+				border-bottom: 1px solid gainsboro;*/
+				width: 100%;
+				height: 90px;
+				line-height: 90px;
+				text-align: center;
+			}
+			
+			.navleft img {
+				position: absolute;
+				width: 160px;
+				height: 50px;
+				top: 20px;
+				left: 50px;
+			}
+			
+			.nav span {
+				font-family: "微软雅黑";
+				font-size: 22px;
+				color: dodgerblue;
+			}
+			
+			#verify_box {
+				width: 338px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+				color: #fff;
+				position: relative;
+				background-color: rgba(212, 212, 212, 1);
+			}
+			
+			#verify_xbox {
+				width: 54px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+				color: #fff;
+				position: absolute;
+				background: #7BBB55;
+			}
+			
+			#btn {
+				cursor: pointer;
+				width: 54px;
+				height: 40px;
+				background-color: rgba(255, 255, 255, 1);
+				border: solid 1px rgba(212, 212, 212, 1);
+				float: right;
+			}
+			
+			#login {
+				/*display: none;*/
+			}
+			
+			#register {
+				display: none;
+			}
+		</style>
+	</head>
 
+	<body>
 
-#parse("footer.html")
+		<!--导航条-->
+		<nav class="nav">
+			<!--左侧logo及站名-->
+			<div class="navleft">
+				<img src="/images/logo.png" />
+			</div>
+			<span>学习玩耍两不误！</span>
+		</nav>
+
+		<div id="login">
+			<div class="wrapper">
+				<div class="login">
+					<form action="javascript:(0);" method="post" class="container offset1 loginform">
+						<div id="owl-login">
+							<div class="hand"></div>
+							<div class="hand hand-r"></div>
+							<div class="arms">
+								<div class="arm"></div>
+								<div class="arm arm-r"></div>
+							</div>
+						</div>
+						<div class="pad">
+							<input type="hidden" name="_csrf" value="9IAtUxV2CatyxHiK2LxzOsT6wtBE6h8BpzOmk=">
+							<div class="control-group">
+								<div class="controls">
+									<label for="username" class="control-label fa fa-user"></label>
+									<input id="username" type="text" name="username" placeholder="用户名" tabindex="1" autofocus="autofocus" class="form-control input-medium">
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<label for="password" class="control-label fa fa-asterisk"></label>
+									<input id="password" type="password" name="password" placeholder="密码" tabindex="2" class="form-control input-medium">
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<div id="verify_box">
+										<div id="verify_xbox">
+											<div id="btn">
+												<!--<img src="http://www.jq22.com/demo/slideVerification201711082055/img/lllllll.png" />-->
+												<img src="/images/lllllll.png" />
+											</div>
+										</div>
+										&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;按住滑块，拖动到最右边
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-actions">
+							<a href="javascript:(0);" tabindex="5" class="btn pull-left btn-link text-muted">忘记密码?</a>
+							<a href="javascript:(0);" tabindex="6" class="btn btn-link text-muted" id="toregister">注册</a>
+							<button id = "pop" type="submit" tabindex="4" class="btn btn-primary">登录</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div id="register">
+			<div class="wrapper">
+				<div class="register">
+					<form action="javascript:(0);" method="post" class="container offset1 loginform">
+						<div id="owl-login">
+							<div class="hand"></div>
+							<div class="hand hand-r"></div>
+							<div class="arms">
+								<div class="arm"></div>
+								<div class="arm arm-r"></div>
+							</div>
+						</div>
+						<div class="pad">
+							<input type="hidden" name="_csrf" value="9IAtUxV2CatyxHiK2LxzOsT6wtBE6h8BpzOmk=">
+							<div class="control-group">
+								<div class="controls">
+									<label for="username" class="control-label fa fa-user"></label>
+									<input id="regusername" type="text" name="username" placeholder="用户名" tabindex="1" autofocus="autofocus" class="form-control input-medium">
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<label for="password" class="control-label fa fa-asterisk"></label>
+									<input id="regpassword" type="password" name="password" placeholder="密码" tabindex="2" class="form-control input-medium">
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<label for="password" class="control-label fa fa-asterisk"></label>
+									<input id="regpassword1" type="password" name="password2" placeholder="确认密码" tabindex="2" class="form-control input-medium">
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<label for="tel" class="control-label fa fa-phone"></label>
+									<input id="tel" type="tel" name="tel" placeholder="联系电话" tabindex="1" autofocus="autofocus" class="form-control input-medium">
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<label for="Identity" class="control-label fa fa-indent"></label>
+									<select id = "Identity" class="form-control">
+										<option value="void">--请选择身份--</option>
+										<option value="student">学生</option>
+										<option value="teacher">教师</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="form-actions">
+							<a href="javascript:(0);" tabindex="5" class="btn pull-left btn-link text-muted">忘记密码?</a>
+							<a href="javascript:(0);" tabindex="6" class="btn btn-link text-muted" id="tologin">登录</a>
+							<button id = "pap" type="submit" tabindex="4" class="btn btn-primary">注册</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<!--<script src="static/js/jquery.min.js"></script>-->
+		<script type="text/javascript" src="/scripts/slide.js"></script>
+		<script>
+			$(function() {
+
+				$('#login #password').focus(function() {
+					$('#login #owl-login').addClass('password');
+				}).blur(function() {
+					$('#login #owl-login').removeClass('password');
+				});
+
+				$('#register #password').focus(function() {
+					$('#register #owl-login').addClass('password');
+				}).blur(function() {
+					$('#register #owl-login').removeClass('password');
+				});
+			});
+
+			/**
+			 * 切换登录为注册
+			 */
+			$("#toregister").click(function() {
+				$("#login").css("display", "none");
+				$("#register").css("display", "block");
+			});
+
+			$("#pop").click(function () {
+                $.ajax({
+                    type:"get",
+                    url:"/login/",
+                    data:{username:$("#username").val(),
+                        password:$("#password").val()},
+                    dataType:"json",
+                    success:function (data) {
+                        if(data.code == 1){
+                            alert("登录失败");
+                        }
+                        else{
+                            window.location.href = "/stu/index";
+                        }
+                    }
+                })
+            })
+
+            $("#pap").click(function () {
+                $.ajax({
+                    type:"get",
+                    url:"/reg/",
+                    data:{username:$("#regusername").val(),
+                        password:$("#regpassword").val(),
+					    Tel:$("#tel").val(),
+					    Identity:$("#Identity").val()},
+                    dataType:"json",
+                    success:function (data) {
+                        if(data.code == 1){
+                            alert("注册失败");
+                        }
+                        else{
+                            alert("注册成功");
+                        }
+                    }
+                })
+            })
+
+			/**
+			 * 切换注册为登录
+			 */
+			$("#tologin").click(function() {
+				$("#register").css("display", "none");
+				$("#login").css("display", "block");
+			});
+		</script>
+
+	</body>
+
+</html>
