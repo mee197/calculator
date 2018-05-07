@@ -156,6 +156,11 @@
 							<input type="hidden" name="_csrf" value="9IAtUxV2CatyxHiK2LxzOsT6wtBE6h8BpzOmk=">
 							<div class="control-group">
 								<div class="controls">
+									#if ($user)
+									<p>$!{user.username}</p>
+									#else
+									<p>没有USER</p>
+									#end
 									<label for="username" class="control-label fa fa-user"></label>
 									<input id="regusername" type="text" name="username" placeholder="用户名" tabindex="1" autofocus="autofocus" class="form-control input-medium">
 								</div>
@@ -236,7 +241,7 @@
                     dataType:"json",
                     success:function (data) {
                         if(data.code == 1){
-                            alert("登录失败");
+                            alert(data.msg);
                         }
                         else{
                             window.location.href = "/stu/index";
