@@ -28,53 +28,45 @@
 
 	<body>
 		<!--导航条-->
-		<div class="selfnav">
-			<!--左侧logo及站名-->
-			<div class="navleft">
-				<img src="/images/logo.png" />
-			</div>
-
-			<!--右侧功能导航与个人中心-->
-			<div class="navright">
-				<!--右侧功能-->
-				<ul class="nav-topic">
-					<li id="item">
-						<a id="nav-index" href="index.html">首页</a>
-					</li>
-					<li id="item">
-						<a id="nav-exams" href="exams.html">我要考试</a>
-					</li>
-					<li id="item">
-						<a id="nav-exercise" href="exercise.html">我要做题</a>
-					</li>
-					<li id="item">
-						<a id="nav-scoreboard" href="scoreboard.html">积分榜</a>
-					</li>
-					<li id="item">
-						<a id="nav-games" href="games.html">玩游戏</a>
-					</li>
-					<li id="item">
-						<!--我的和注销-->
-						<span class="self">
+		<div class="navright">
+			<!--右侧功能-->
+			<ul class="nav-topic">
+				<li id="item">
+					<a id="nav-index" class="nav-active" href="index.html">首页</a>
+				</li>
+				<li id="item">
+					<a id="nav-exams" href="/exam/">我要考试</a>
+				</li>
+				<li id="item">
+					<a id="nav-exercise" href="/topic/">我要做题</a>
+				</li>
+				<li id="item">
+					<a id="nav-scoreboard" href="/rank/">积分榜</a>
+				</li>
+				<li id="item">
+					<a id="nav-games" href="/game/">玩游戏</a>
+				</li>
+				<li id="item">
+					<!--我的和注销-->
+					<span class="self">
 								你好！
-								<a href="#">杨子琪</a>
+								<a href="#">$!{user.username}</a>
 								<ul class="infomodels">
 									<li>
-						<a href="self.html">个人中心</a>
+						<a href="/self/">个人中心</a>
 					</li>
 					<li>
-						<a href="modifypwd.html">修改密码</a>
+						<a href="/modify/">修改密码</a>
 					</li>
 					<li>
-						<a href="javascript:(0);">退出</a>
+						<a href="/logout/">退出</a>
 					</li>
 				</ul>
 				</span>
-					</li>
-				</ul>
-			</div>
+				</li>
+			</ul>
 		</div>
-
+		</div>
 		<!--主页内容-->
 		<div class="page-body">
 			<div class="stu-modifypwd">

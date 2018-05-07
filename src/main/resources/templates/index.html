@@ -244,7 +244,13 @@
                             alert(data.msg);
                         }
                         else{
-                            window.location.href = "/stu/index";
+                            if(data.Identity == 0){
+                                window.location.href = "/stu/index";
+							}
+                            else
+							{
+                                window.location.href = "/tea/index";
+							}
                         }
                     }
                 })
