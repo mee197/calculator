@@ -6,8 +6,8 @@
 		<title>个人中心</title>
 		<!--<link rel="stylesheet" href="../../static/css/bootstrap.min.css" />-->
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" href="/scripts/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="/scripts/css/nav.css" />
+		<link rel="stylesheet" href="/styles/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/styles/css/nav.css" />
 		<!--<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">-->
 		<style>
 			.self-body {
@@ -117,20 +117,26 @@
 		<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 		<!--<script type="text/javascript" src="../../static/js/jquery.min.js"></script>-->
 		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-		<script type="text/javascript">
-			var username = $(".self strong");
-			username.text(localStorage.username);
-		</script>
+		<!--<script type="text/javascript">-->
+			<!--var username = $(".self strong");-->
+			<!--username.text(localStorage.username);-->
+		<!--</script>-->
 	</head>
 
 	<body>
+	<!--导航条-->
+	<div class="selfnav">
+		<!--左侧logo及站名-->
+		<div class="navleft">
+			<img src="/images/logo.png" />
+		</div>
 
-		<!--导航条-->
+		<!--右侧功能导航与个人中心-->
 		<div class="navright">
 			<!--右侧功能-->
 			<ul class="nav-topic">
 				<li id="item">
-					<a id="nav-index" class="nav-active" href="index.html">首页</a>
+					<a id="nav-index" class="nav-active" href="/stu/index">首页</a>
 				</li>
 				<li id="item">
 					<a id="nav-exams" href="/exam/">我要考试</a>
@@ -164,7 +170,7 @@
 				</li>
 			</ul>
 		</div>
-		</div>
+	</div>
 
 		<!--主页内容-->
 		<div class="page-body">
@@ -186,27 +192,32 @@
 						<div class="info-body">
 							<p id="">
 								<span class="filed-name">账号：</span>
-								<span class="filed-value">xs2542542</span>
+								<span class="filed-value">$!{user.username}</span>
 							</p>
-							<p id="">
+							<p id="name">
 								<span class="filed-name">姓名：</span>
 								<span class="filed-value">杨子琪</span>
 								<a href="">修改</a>
 							</p>
-							<p id="">
+							<p id="gender">
+								#if ($user.Gender)
 								<span class="filed-name">性别：</span>
-								<span class="filed-value">女</span>
+								<span class="filed-value">$!{user.Gender}</span>
+								#else
+								<span class="filed-name">性别：</span>
+								<span class="filed-value">还没有填写</span>
+								#end
 								<a href="">修改</a>
 							</p>
 							<p id="">
 								<span class="filed-name">电话：</span>
-								<span class="filed-value">13485656428</span>
+								<span class="filed-value">$!{user.Tel}</span>
 								<a href="">修改</a>
 							</p>
 							<p id="">
 								<span class="filed-name">积分：</span>
 								<span class="filed-value">0</span>
-								<a href="record.html">查看记录</a>
+								<a href="/r/">查看记录</a>
 							</p>
 						</div>
 					</div>

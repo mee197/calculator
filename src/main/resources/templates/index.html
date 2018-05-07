@@ -234,7 +234,7 @@
 
 			$("#pop").click(function () {
                 $.ajax({
-                    type:"get",
+                    type:"post",
                     url:"/login/",
                     data:{username:$("#username").val(),
                         password:$("#password").val()},
@@ -258,7 +258,7 @@
 
             $("#pap").click(function () {
                 $.ajax({
-                    type:"get",
+                    type:"post",
                     url:"/reg/",
                     data:{username:$("#regusername").val(),
                         password:$("#regpassword").val(),
