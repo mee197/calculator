@@ -6,6 +6,7 @@
 		<meta name="author" content="Mr. Snail" />
 		<meta name="url" content="www.hbuecx.club/www.hbuecx.com" />
 		<title>别踩白块</title>
+		<link rel="stylesheet" href="/styles/css/game-rule.css" />
 		<style>
 			body {
 				background-color: #EEE;
@@ -75,187 +76,193 @@
 			<div id="main"></div>
 			<!--存储div的容器-->
 		</div>
+
+		<!--计时模块-->
+		<div class="game-info-module"></div>
+
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script src="/scripts/game-rule.js" ></script>
+		<script>
+            //用于储存倒计时时间
+            var time = 0;
+
+            //常见一个用于记录分数的值
+            var grade = 0;
+
+            //判断游戏状态
+            var state = true;
+
+            //用于存储滑块每次下降的高度，即改变了滑块下滑的速度
+            var speed = 2;
+
+            //判断按钮发出的指令是开始还是结束
+            var game = -1;
+
+            //判断游戏是否已经正式开始
+            var star = false;
+
+            //获取到按钮
+            var inp = document.getElementsByTagName("input")[0];
+
+            //获取到文本域
+            var h = document.getElementsByTagName("h2")[0];
+
+            //获取id为main的容器div
+            var main = document.getElementById("main");
+
+            //   分别指       元素，属性
+            function getStyle(el, attr) { //获取内存中的样式
+                return el.currentStyle ? el.currentStyle[attr] : getComputedStyle(el, null)[attr];
+                //      IE9.0以下的方法   IE9.0以下获取的方法     IE9.0以上及其他支持浏览器获取内存中css的方法，null这个地方写伪类，可以为null
+            }
+
+            //创建小的div
+            function CDiv(className) { //className指方块的颜色
+                var div = document.createElement("div");
+
+                if(className) {
+                    div.className = className;
+                }
+                return div;
+            }
+
+            //创建一行4个div
+            function CRow() {
+                var row = CDiv("row");
+
+                //创建一个0-3的随机数，用于判别哪一个方块的颜色为黑色
+                var num = Math.floor(Math.random() * 4);
+
+                //将4个div依次插入到row中
+                for(var i = 0; i < 4; i++) {
+                    if(i == num) {
+                        row.appendChild(CDiv("black"));
+                    } else {
+                        row.appendChild(CDiv("white"));
+                    }
+                }
+
+                //判断main里面第一个row节点是否为空（即main中是否有row节点）。如果为空，就直接在第一行插入一个row节点；如果不为空，就在第一行的row节点之前插入一个新的row节点
+                //功能:
+                if(main.firstChild) {
+                    main.insertBefore(row, main.firstChild);
+                } else {
+                    main.appendChild(row);
+                }
+            }
+
+            //初始化函数
+            function init() {
+                for(var i = 0; i < 6; i++) {
+                    CRow();
+                }
+            }
+
+            //倒计时函数
+            function down() {
+                time = time - 1;
+                h.innerHTML = "倒计时：" + time;
+                if(time <= 0) {
+                    clearInterval(countDown); //查找countDown变量的那个定时器并清除它
+                }
+            }
+
+            //row节点向下移动
+            function move() {
+                var top = getStyle(main, "top");
+                top = parseInt(top);
+
+                //不断增加top的值
+                main.style.top = top + speed + "px";
+
+                //当top等于0时，刚好是6个row节点完全填满整个容器的时候，此时要在容器的最上方创建一个新的row节点，并将top值恢复为-100px，以实现能够循环创建row节点
+                //此处应该改为“top>=0”，因为涉及到方块下降加速的问题，有可能在加速的时候，top的值可能直接跳过了0，一下子由负数变成正数（如果按照等于0来判断，那么将不再产生新的row节点，所以要变成“top>=0”
+                if(top >= 0) {
+                    CRow();
+                    main.style.top = -100 + top + "px";
+
+                    //根据最后一个row节点的认为创建的pass属性值判断，最后一行的黑块是否被点击过，如果没有，则游戏结束
+                    if(main.lastChild.pass == undefined) {
+                        gameover();
+                    }
+                }
+
+                //当row节点穿过最下面那条线的时候掐断
+                if(main.children.length > 6) {
+                    main.removeChild(main.lastChild);
+                }
+            }
+
+            //循环执行move()
+            function loopMove() {
+                star = true; //设置游戏为正式开始状态，然后才开始移动滑块
+                clock = window.setInterval("move()", 40);
+            }
+
+            //点击后能够加分以及改变颜色
+            main.onclick = function(ev) {
+                if(state == true) { //点击div时，首先判断游戏是否已经结束，如果未结束则继续执行
+                    if(star == true) { //判断游戏是否已经正式开始
+                        if(ev.target.className == "black") { //判断被点击的块class名是否为“black”，如果是，则将其背景颜色变为白色，同时加分
+                            ev.target.style.background = "white";
+                            ev.target.parentNode.pass = true; //人为的为该块的父row节点创建一个pass属性用于判断该row节点中的黑块是否已经被点击过了
+                            grade++; //加分
+                            h.innerHTML = "分数：" + grade; //输出分数
+
+                            //每当分数加10的时候，将滑块下滑的速度提高1，修改这里的数字可更改滑块速度
+                            if(grade % 10 == 0) {
+                                speed++;
+                            }
+                        } else { //如果class名不是"black",则退出游戏
+                            gameover();
+                        }
+                    }
+                } else {
+                    alert("游戏已经结束，请重新开局！");
+                }
+            }
+
+            //结束游戏函数
+            function gameover() {
+                clearInterval(clock); //清除定时器，停止循环
+                state = false; //设置游戏状态为结束
+                star = false; //设置游戏为为未正式开始状态
+                game = -1; //设置按钮发出的指令为结束
+                alert("你输了！得分" + grade); //跳出弹窗提示游戏结束
+            }
+
+            //使用按钮点击事件来开始和结束游戏
+            inp.onclick = function() {
+                game = game * (-1);
+                if(game > 0) {
+                    //在初始化之前，先把最上面一个块的上边距调整为标准值“-100px”
+                    main.style.top = "-100px";
+
+                    //初始化
+                    init();
+
+                    //重置倒计时事件
+                    time = 6;
+
+                    //初始化之后先倒计时5秒开始游戏
+                    countDown = window.setInterval("down()", 1000); //将这个定时器函数用变量countDown存储起来
+
+                    //重置分数为0分
+                    grade = 0;
+
+                    //调整游戏状态为正在进行
+                    state = true;
+
+                    //重置速度为2
+                    speed = 2;
+
+                    //等待6秒后正式开始游戏
+                    setTimeout("loopMove()", 6000);
+                } else {
+                    gameover();
+                }
+            }
+		</script>
 	</body>
-	<script>
-		//用于储存倒计时时间
-		var time = 0;
-
-		//常见一个用于记录分数的值
-		var grade = 0;
-
-		//判断游戏状态
-		var state = true;
-
-		//用于存储滑块每次下降的高度，即改变了滑块下滑的速度
-		var speed = 2;
-
-		//判断按钮发出的指令是开始还是结束
-		var game = -1;
-
-		//判断游戏是否已经正式开始
-		var star = false;
-
-		//获取到按钮
-		var inp = document.getElementsByTagName("input")[0];
-
-		//获取到文本域
-		var h = document.getElementsByTagName("h2")[0];
-
-		//获取id为main的容器div
-		var main = document.getElementById("main");
-
-		//   分别指       元素，属性
-		function getStyle(el, attr) { //获取内存中的样式
-			return el.currentStyle ? el.currentStyle[attr] : getComputedStyle(el, null)[attr];
-			//      IE9.0以下的方法   IE9.0以下获取的方法     IE9.0以上及其他支持浏览器获取内存中css的方法，null这个地方写伪类，可以为null 
-		}
-
-		//创建小的div
-		function CDiv(className) { //className指方块的颜色
-			var div = document.createElement("div");
-
-			if(className) {
-				div.className = className;
-			}
-			return div;
-		}
-
-		//创建一行4个div
-		function CRow() {
-			var row = CDiv("row");
-
-			//创建一个0-3的随机数，用于判别哪一个方块的颜色为黑色
-			var num = Math.floor(Math.random() * 4);
-
-			//将4个div依次插入到row中
-			for(var i = 0; i < 4; i++) {
-				if(i == num) {
-					row.appendChild(CDiv("black"));
-				} else {
-					row.appendChild(CDiv("white"));
-				}
-			}
-
-			//判断main里面第一个row节点是否为空（即main中是否有row节点）。如果为空，就直接在第一行插入一个row节点；如果不为空，就在第一行的row节点之前插入一个新的row节点
-			//功能:
-			if(main.firstChild) {
-				main.insertBefore(row, main.firstChild);
-			} else {
-				main.appendChild(row);
-			}
-		}
-
-		//初始化函数
-		function init() {
-			for(var i = 0; i < 6; i++) {
-				CRow();
-			}
-		}
-
-		//倒计时函数
-		function down() {
-			time = time - 1;
-			h.innerHTML = "倒计时：" + time;
-			if(time <= 0) {
-				clearInterval(countDown); //查找countDown变量的那个定时器并清除它
-			}
-		}
-
-		//row节点向下移动
-		function move() {
-			var top = getStyle(main, "top");
-			top = parseInt(top);
-
-			//不断增加top的值
-			main.style.top = top + speed + "px";
-
-			//当top等于0时，刚好是6个row节点完全填满整个容器的时候，此时要在容器的最上方创建一个新的row节点，并将top值恢复为-100px，以实现能够循环创建row节点
-			//此处应该改为“top>=0”，因为涉及到方块下降加速的问题，有可能在加速的时候，top的值可能直接跳过了0，一下子由负数变成正数（如果按照等于0来判断，那么将不再产生新的row节点，所以要变成“top>=0”
-			if(top >= 0) {
-				CRow();
-				main.style.top = -100 + top + "px";
-
-				//根据最后一个row节点的认为创建的pass属性值判断，最后一行的黑块是否被点击过，如果没有，则游戏结束
-				if(main.lastChild.pass == undefined) {
-					gameover();
-				}
-			}
-
-			//当row节点穿过最下面那条线的时候掐断
-			if(main.children.length > 6) {
-				main.removeChild(main.lastChild);
-			}
-		}
-
-		//循环执行move()
-		function loopMove() {
-			star = true; //设置游戏为正式开始状态，然后才开始移动滑块
-			clock = window.setInterval("move()", 40);
-		}
-
-		//点击后能够加分以及改变颜色
-		main.onclick = function(ev) {
-			if(state == true) { //点击div时，首先判断游戏是否已经结束，如果未结束则继续执行
-				if(star == true) { //判断游戏是否已经正式开始
-					if(ev.target.className == "black") { //判断被点击的块class名是否为“black”，如果是，则将其背景颜色变为白色，同时加分
-						ev.target.style.background = "white";
-						ev.target.parentNode.pass = true; //人为的为该块的父row节点创建一个pass属性用于判断该row节点中的黑块是否已经被点击过了
-						grade++; //加分
-						h.innerHTML = "分数：" + grade; //输出分数
-
-						//每当分数加10的时候，将滑块下滑的速度提高1，修改这里的数字可更改滑块速度
-						if(grade % 10 == 0) {
-							speed++;
-						}
-					} else { //如果class名不是"black",则退出游戏
-						gameover();
-					}
-				}
-			} else {
-				alert("游戏已经结束，请重新开局！");
-			}
-		}
-
-		//结束游戏函数
-		function gameover() {
-			clearInterval(clock); //清除定时器，停止循环
-			state = false; //设置游戏状态为结束  
-			star = false; //设置游戏为为未正式开始状态
-			game = -1; //设置按钮发出的指令为结束
-			alert("你输了！得分" + grade); //跳出弹窗提示游戏结束
-		}
-
-		//使用按钮点击事件来开始和结束游戏
-		inp.onclick = function() {
-			game = game * (-1);
-			if(game > 0) {
-				//在初始化之前，先把最上面一个块的上边距调整为标准值“-100px”
-				main.style.top = "-100px";
-
-				//初始化
-				init();
-
-				//重置倒计时事件
-				time = 6;
-
-				//初始化之后先倒计时5秒开始游戏
-				countDown = window.setInterval("down()", 1000); //将这个定时器函数用变量countDown存储起来
-
-				//重置分数为0分
-				grade = 0;
-
-				//调整游戏状态为正在进行
-				state = true;
-
-				//重置速度为2
-				speed = 2;
-
-				//等待6秒后正式开始游戏
-				setTimeout("loopMove()", 6000);
-			} else {
-				gameover();
-			}
-		}
-	</script>
 
 </html>
