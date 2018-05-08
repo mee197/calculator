@@ -105,6 +105,16 @@
 				font-weight: 600;
 				font-size: 22px;
 			}
+
+			.info-body #name input,
+			.info-body #tel input{
+				width: 200px;
+			}
+
+			.info-body #gender input{
+				width: 20px;
+				height: 20px;
+			}
 			
 			.info-body .filed-name {
 				color: gray;
@@ -196,23 +206,42 @@
 							</p>
 							<p id="name">
 								<span class="filed-name">姓名：</span>
-								<span class="filed-value">杨子琪</span>
-								<a href="">修改</a>
+
+								<span class="name-show">
+									<span class="filed-value" id="username">$!{user.username}</span>
+									<a href="javascript:void(0);">修改</a>
+								</span>
+								<span class="name-modify" style="display: none;">
+									<input type="text" placeholder="" />
+									<button type="button">确认</button>
+								</span>
 							</p>
 							<p id="gender">
-								#if ($user.Gender)
 								<span class="filed-name">性别：</span>
-								<span class="filed-value">$!{user.Gender}</span>
-								#else
-								<span class="filed-name">性别：</span>
-								<span class="filed-value">还没有填写</span>
-								#end
-								<a href="">修改</a>
+									<span class="name-show">
+									#if ($user.Gender)
+									<span class="filed-value">$!{user.Gender}</span>
+									#else
+									<span class="filed-value">还没有填写</span>
+									#end
+									<a href="javascript:void(0);">修改</a>
+								</span>
+								<span class="name-modify" style="display: none;">
+									<input type="text" placeholder="" />
+									<button type="button">确认</button>
+								</span>
 							</p>
-							<p id="">
+							<p id="tel">
 								<span class="filed-name">电话：</span>
-								<span class="filed-value">$!{user.Tel}</span>
-								<a href="">修改</a>
+
+								<span class="tel-show">
+									<span class="filed-value" id="telephone">$!{user.Tel}</span>
+									<a href="javascript:void(0);">修改</a>
+								</span>
+								<span class="tel-modify" style="display: none;">
+									<input type="number" placeholder="" />
+									<button type="button">确认</button>
+								</span>
 							</p>
 							<p id="">
 								<span class="filed-name">积分：</span>
@@ -265,6 +294,78 @@
 				}
 				return url;
 			}
+
+            /**
+             * 点击"修改"用户名切换至输入框
+             */
+            $("#name a").click(function() {
+                $("#name .name-show").css("display","none");
+                $("#name .name-modify").css("display","inline-block");
+            });
+
+            /**
+             * 确认修改用户名
+             */
+            $("#name button").click(function(){
+                //获取用户输入的用户名
+                var name = $("#name input").val();
+
+                //向后台传送数据
+
+
+
+                //切换输入框为值
+                $("#name .name-modify").css("display","none");
+                $("#name .name-show").css("display","inline-block");
+            });
+
+            /**
+             * 点击"修改"性别切换至输入框
+             */
+            $("#gender a").click(function() {
+                $("#gender .gender-show").css("display","none");
+                $("#gender .gender-modify").css("display","inline-block");
+            });
+
+            /**
+             * 点击修改性别
+             */
+            $("#gender button").click(function(){
+                //获取用户的性别
+                var gender = $("#gender input[name='sex']:checked").val();
+
+                //向后台传送数据
+
+
+
+                //切换输入框为值
+                $("#gender .gender-modify").css("display","none");
+                $("#gender .gender-show").css("display","inline-block");
+            });
+
+            /**
+             * 点击"修改"联系方式切换至输入框
+             */
+            $("#tel a").click(function() {
+                $("#tel .tel-show").css("display","none");
+                $("#tel .tel-modify").css("display","inline-block");
+            });
+
+            /**
+             * 确认修改联系方式
+             */
+            $("#tel button").click(function(){
+                //获取用户输入的联系方式
+                var tel = $("#tel input").val();
+
+                //向后台传送数据
+
+
+
+                //切换输入框为值
+                $("#tel .tel-modify").css("display","none");
+                $("#tel .tel-show").css("display","inline-block");
+            });
 		</script>
 	</body>
 
