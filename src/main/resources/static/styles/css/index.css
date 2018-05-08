@@ -9666,7 +9666,7 @@ header .navbar-default .navbar-nav.navbar-right>li>a {
 .ph-exclusive #browsers-parent #ph-owl #ph-owl-feet {
 	width: 109px;
 	height: 42px;
-	background-image: url("../img/ph-owl-feet.png");
+	background-image: url("/images/ph-owl-feet.png");
 	position: absolute;
 	top: 290px;
 	left: 90px;
@@ -9684,7 +9684,7 @@ header .navbar-default .navbar-nav.navbar-right>li>a {
 (min-resolution: 138dpi),
 (min-resolution: 1.5dppx) {
 	.ph-exclusive #browsers-parent #ph-owl #ph-owl-feet {
-		background-image: url("../img/ph-owl-feet@2x.png");
+		background-image: url("/images/ph-owl-feet@2x.png");
 		-webkit-background-size: 109px 42px;
 		-moz-background-size: 109px 42px;
 		background-size: 109px 42px;
@@ -9694,7 +9694,7 @@ header .navbar-default .navbar-nav.navbar-right>li>a {
 .ph-exclusive #browsers-parent #ph-owl #ph-owl-arml {
 	width: 52px;
 	height: 106px;
-	background-image: url("../img/ph-owl-arml.png");
+	background-image: url("/images/ph-owl-arml.png");
 	position: absolute;
 	z-index: 10;
 	top: 188px;
@@ -9718,7 +9718,7 @@ header .navbar-default .navbar-nav.navbar-right>li>a {
 (min-resolution: 138dpi),
 (min-resolution: 1.5dppx) {
 	.ph-exclusive #browsers-parent #ph-owl #ph-owl-arml {
-		background-image: url("../img/ph-owl-arml@2x.png");
+		background-image: url("/images/ph-owl-arml@2x.png");
 		-webkit-background-size: 52px 106px;
 		-moz-background-size: 52px 106px;
 		background-size: 52px 106px;
@@ -9728,7 +9728,7 @@ header .navbar-default .navbar-nav.navbar-right>li>a {
 .ph-exclusive #browsers-parent #ph-owl #ph-owl-body {
 	width: 264px;
 	height: 327px;
-	background-image: url("../img/ph-owl.png");
+	background-image: url("/images/ph-owl.png");
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -9742,7 +9742,7 @@ header .navbar-default .navbar-nav.navbar-right>li>a {
 (min-resolution: 138dpi),
 (min-resolution: 1.5dppx) {
 	.ph-exclusive #browsers-parent #ph-owl #ph-owl-body {
-		background-image: url("../img/ph-owl@2x.png");
+		background-image: url("/images/ph-owl@2x.png");
 		-webkit-background-size: 264px 327px;
 		-moz-background-size: 264px 327px;
 		background-size: 264px 327px;
@@ -9793,7 +9793,7 @@ header .navbar-default .navbar-nav.navbar-right>li>a {
 .ph-exclusive #browsers-parent #ph-owl #ph-owl-arm {
 	width: 101px;
 	height: 108px;
-	background-image: url("../img/ph-owl-arm.png");
+	background-image: url("/images/ph-owl-arm.png");
 	position: absolute;
 	left: 220px;
 	top: 120px;
@@ -9821,7 +9821,7 @@ header .navbar-default .navbar-nav.navbar-right>li>a {
 (min-resolution: 138dpi),
 (min-resolution: 1.5dppx) {
 	.ph-exclusive #browsers-parent #ph-owl #ph-owl-arm {
-		background-image: url("../img/ph-owl-arm@2x.png");
+		background-image: url("/images/ph-owl-arm@2x.png");
 		-webkit-background-size: 101px 108px;
 		-moz-background-size: 101px 108px;
 		background-size: 101px 108px;
@@ -9831,7 +9831,7 @@ header .navbar-default .navbar-nav.navbar-right>li>a {
 .ph-exclusive #browsers-parent #ph-owl #ph-text {
 	width: 299px;
 	height: 163px;
-	background-image: url("../img/ph-text.png");
+	background-image: url("/images/ph-text.png");
 	position: absolute;
 	left: 262px;
 	top: -34px;
@@ -9857,7 +9857,7 @@ header .navbar-default .navbar-nav.navbar-right>li>a {
 (min-resolution: 138dpi),
 (min-resolution: 1.5dppx) {
 	.ph-exclusive #browsers-parent #ph-owl #ph-text {
-		background-image: url("../img/ph-text@2x.png");
+		background-image: url("/images/ph-text@2x.png");
 		-webkit-background-size: 299px 163px;
 		-moz-background-size: 299px 163px;
 		background-size: 299px 163px;
@@ -11421,7 +11421,7 @@ hr.dots:before {
 #register #owl-login {
 	width: 211px;
 	height: 108px;
-	background-image: url("../img/owl-login.png");
+	background-image: url("/images/owl-login.png");
 	position: absolute;
 	top: -100px;
 	left: 50%;
@@ -11436,7 +11436,7 @@ hr.dots:before {
 (min-resolution: 1.5dppx) {
 	#login #owl-login,
 	#register #owl-login {
-		background-image: url("../img/owl-login@2x.png");
+		background-image: url("/images/owl-login@2x.png");
 		-webkit-background-size: 211px 108px;
 		-moz-background-size: 211px 108px;
 		background-size: 211px 108px;
@@ -11504,7 +11504,7 @@ hr.dots:before {
 	position: absolute;
 	left: 20px;
 	top: 40px;
-	background-image: url("../img/owl-login-arm.png");
+	background-image: url("/images/owl-login-arm.png");
 	-webkit-transition: 0.3s ease-out;
 	-moz-transition: 0.3s ease-out;
 	-o-transition: 0.3s ease-out;
@@ -11525,7 +11525,7 @@ hr.dots:before {
 (min-resolution: 1.5dppx) {
 	#login #owl-login .arms .arm,
 	#register #owl-login .arms .arm {
-		background-image: url("../img/owl-login-arm@2x.png");
+		background-image: url("/images/owl-login-arm@2x.png");
 		-webkit-background-size: 40px 65px;
 		-moz-background-size: 40px 65px;
 		background-size: 40px 65px;
@@ -11783,7 +11783,7 @@ hr.dots:before {
 #register .owl-signup .owl-body {
 	width: 230px;
 	height: 288px;
-	background-image: url("../img/signup.png");
+	background-image: url("/images/signup.png");
 	z-index: 10;
 	position: relative;
 	-webkit-transition: 0.3s ease-out;
@@ -11801,7 +11801,7 @@ hr.dots:before {
 (min-resolution: 1.5dppx) {
 	#login .owl-signup .owl-body,
 	#register .owl-signup .owl-body {
-		background-image: url("../img/signup@2x.png");
+		background-image: url(/images/signup@2x.png");
 		-webkit-background-size: 230px 288px;
 		-moz-background-size: 230px 288px;
 		background-size: 230px 288px;
@@ -11852,7 +11852,7 @@ hr.dots:before {
 
 #login .owl-signup .owl-arm,
 #register .owl-signup .owl-arm {
-	background-image: url("../img/signup-arm.png");
+	background-image: url("/images/signup-arm.png");
 	width: 92px;
 	height: 103px;
 	position: absolute;
@@ -11878,7 +11878,7 @@ hr.dots:before {
 (min-resolution: 1.5dppx) {
 	#login .owl-signup .owl-arm,
 	#register .owl-signup .owl-arm {
-		background-image: url("../img/signup-arm@2x.png");
+		background-image: url("/images/signup-arm@2x.png");
 		-webkit-background-size: 92px 103px;
 		-moz-background-size: 92px 103px;
 		background-size: 92px 103px;
@@ -11887,7 +11887,7 @@ hr.dots:before {
 
 #login .owl-signup .owl-feet,
 #register .owl-signup .owl-feet {
-	background-image: url("../img/signup-feet.png");
+	background-image: url("/images/signup-feet.png");
 	width: 150px;
 	height: 32px;
 	position: absolute;
@@ -11903,7 +11903,7 @@ hr.dots:before {
 (min-resolution: 1.5dppx) {
 	#login .owl-signup .owl-feet,
 	#register .owl-signup .owl-feet {
-		background-image: url("../img/signup-feet@2x.png");
+		background-image: url("/images/signup-feet@2x.png");
 		-webkit-background-size: 150px 32px;
 		-moz-background-size: 150px 32px;
 		background-size: 150px 32px;
