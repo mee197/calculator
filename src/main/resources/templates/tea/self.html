@@ -233,6 +233,7 @@
 									<span class="filed-value" id="telephone">$!{user.Tel}</span>
 									#else
 									<span class="filed-value">还没有填写</span>
+									#end
 									<a href="javascript:void(0);">修改</a>
 								</span>
 								<span class="tel-modify" style="display: none;">
@@ -308,6 +309,21 @@
                 var name = $("#name input").val();
 
                 //向后台传送数据
+                $.ajax({
+                    type:"post",
+                    url:"/updataUsername/",
+                    data:{username:$("#name input").val(),userId:'$!{user.userId}'},
+                    dataType:"json",
+                    success:function (data) {
+                        if(data.code == 1){
+                            alert(data.msg);
+                        }
+                        else{
+                            alert(data.msg);
+                            window.location.href = "/tself/";
+                        }
+                    }
+                });
 
 
 
@@ -332,6 +348,21 @@
                 var gender = $("#gender input[name='sex']:checked").val();
 
                 //向后台传送数据
+                $.ajax({
+                    url:"/updataGender/",
+                    type:"post",
+                    data:{Gender:$("#gender input[name='sex']:checked").val(),userId:'$!{user.userId}'},
+                    dataType:"json",
+                    success:function (data) {
+                        if(data.code == 1){
+                            alert(data.msg);
+                        }
+                        else{
+                            alert("修改成功");
+                            window.location.href = "/self/";
+                        }
+                    }
+                });
 
 
 
@@ -356,7 +387,21 @@
                 var tel = $("#tel input").val();
 
                 //向后台传送数据
-
+				$.ajax({
+                    url:"/updataTel/",
+                    type:"post",
+                    data:{Tel:$("#tel input").val(),userId:'$!{user.userId}'},
+                    dataType:"json",
+                    success:function (data) {
+                        if(data.code == 1){
+                            alert(data.msg);
+                        }
+                        else{
+                            alert("修改成功");
+                            window.location.href = "/tself/";
+                        }
+                    }
+                });
 
 
                 //切换输入框为值
