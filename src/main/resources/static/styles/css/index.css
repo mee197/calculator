@@ -13033,7 +13033,7 @@ footer .pf .spacer {
 
 #error #error-page .container,
 #other #error-page .container {
-	background-image: url("../img/books.png");
+	background-image: url("/images/books.png");
 	background-position: -411px bottom;
 	background-repeat: repeat-x;
 }

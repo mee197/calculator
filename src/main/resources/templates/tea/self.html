@@ -196,7 +196,7 @@
 						<div class="info-body">
 							<p id="">
 								<span class="filed-name">账号：</span>
-								<span class="filed-value">$!{user.username}</span>
+								<span class="filed-value">$!{user.userId}</span>
 							</p>
 							<p id="name">
 								<span class="filed-name">姓名：</span>
@@ -212,7 +212,7 @@
 							</p>
 							<p id="gender">
 								<span class="filed-name">性别：</span>
-								<span class="name-show">
+								<span class="gender-show">
 									#if ($user.Gender)
 									<span class="filed-value">$!{user.Gender}</span>
 									#else
@@ -220,16 +220,19 @@
 									#end
 									<a href="javascript:void(0);">修改</a>
 								</span>
-								<span class="name-modify" style="display: none;">
-									<input type="text" placeholder="" />
+								<span class="gender-modify" style="display: none;">
+									<input type="radio" name="sex" value="0" />男&nbsp;&nbsp;
+									<input type="radio" name="sex" value="1" />女&nbsp;
 									<button type="button">确认</button>
 								</span>
 							</p>
 							<p id="tel">
 								<span class="filed-name">电话：</span>
-
 								<span class="tel-show">
+									#if ($user.Tel)
 									<span class="filed-value" id="telephone">$!{user.Tel}</span>
+									#else
+									<span class="filed-value">还没有填写</span>
 									<a href="javascript:void(0);">修改</a>
 								</span>
 								<span class="tel-modify" style="display: none;">
@@ -240,7 +243,7 @@
 							<p id="">
 								<span class="filed-name">积分：</span>
 								<span class="filed-value">0</span>
-								<a href="/r/">查看记录</a>
+								<a href="/record/">查看记录</a>
 							</p>
 						</div>
 					</div>
