@@ -264,15 +264,28 @@
 			 * 图片文件预览及上传
 			 */
 			$(".file").change(function() {
-				var objUrl = getObjectURL(this.files[0]);
+				// var objUrl = getObjectURL(this.files[0]);
 				//图片预览
-				if(objUrl) {
-					$("#picture").attr("src", objUrl);
-				}
+				// if(objUrl) {
+				// 	$("#picture").attr("src", objUrl);
+				// }
 				
 				//图片上传
-				
-			});
+                var formdata=new FormData();
+                //formdata.append('name', 'uploadImage');
+                formdata.append('file',$('#img_file').get(0).files[0]);
+                $.ajax({
+                    url:'/uploadimg/',
+                    type:'post',
+                    contentType:false,
+                    data:formdata,
+                    processData:false,
+                    success:function(data){
+                        console.log(data);
+                        alert(data.msg);
+                    }
+                });
+            });
 			
 			/**
 			 * 建立一个可存取到该file的url
@@ -324,9 +337,7 @@
                         }
                     }
                 });
-
-
-
+				
                 //切换输入框为值
                 $("#name .name-modify").css("display","none");
                 $("#name .name-show").css("display","inline-block");
@@ -363,9 +374,7 @@
                         }
                     }
                 });
-
-
-
+				
                 //切换输入框为值
                 $("#gender .gender-modify").css("display","none");
                 $("#gender .gender-show").css("display","inline-block");
@@ -402,7 +411,6 @@
                         }
                     }
                 });
-
 
                 //切换输入框为值
                 $("#tel .tel-modify").css("display","none");
