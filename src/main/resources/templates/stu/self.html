@@ -192,8 +192,10 @@
 						<div class="photo-body">
 							<img id="picture" src="/images/user.jpg" />
 							<div class="user-file-outwrap">
-								<div class="user-file-wrap"><input type="file" class="file"></div>
-								<button type="button" class="btn btn-primary">上传头像</button>
+								<form  method="post" id="imgform" enctype="multipart/form-data" action="/uploadimg//">
+									<div class="user-file-wrap"><input type="file" id="img_file" class="file"></div>
+									<button id = "upload" type="button" class="btn btn-primary">上传头像</button>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -218,7 +220,7 @@
 							</p>
 							<p id="gender">
 								<span class="filed-name">性别：</span>
-									<span class="name-show">
+								<span class="gender-show">
 									#if ($user.Gender)
 									<span class="filed-value">$!{user.Gender}</span>
 									#else
@@ -226,11 +228,15 @@
 									#end
 									<a href="javascript:void(0);">修改</a>
 								</span>
-								<span class="name-modify" style="display: none;">
-									<input type="text" placeholder="" />
+								<span class="gender-modify" style="display: none;">
+									<input type="radio" name="sex" value="0" />男&nbsp;&nbsp;
+									<input type="radio" name="sex" value="1" />女&nbsp;
 									<button type="button">确认</button>
 								</span>
 							</p>
+
+
+
 							<p id="tel">
 								<span class="filed-name">电话：</span>
 
@@ -265,16 +271,33 @@
 			/**
 			 * 图片文件预览及上传
 			 */
-			$(".file").change(function() {
-				var objUrl = getObjectURL(this.files[0]);
-				//图片预览
-				if(objUrl) {
-					$("#picture").attr("src", objUrl);
-				}
-				
-				//图片上传
-				
-			});
+            $(".file").change(function() {
+                var formdata=new FormData();
+                //formdata.append('name', 'uploadImage');
+                formdata.append('file',$('#img_file').get(0).files[0]);
+                $.ajax({
+                    url:'/uploadimg/',
+                    type:'post',
+                    contentType:false,
+                    data:formdata,
+                    processData:false,
+                    success:function(data){
+                        console.log(data)
+                        alert(data.msg);
+                    }
+                });
+
+            });
+			// $(".file").change(function() {
+			// 	var objUrl = getObjectURL(this.files[0]);
+			// 	//图片预览
+			// 	if(objUrl) {
+			// 		$("#picture").attr("src", objUrl);
+			// 	}
+            //
+			// 	//图片上传
+            //
+			// });
 			
 			/**
 			 * 建立一个可存取到该file的url
@@ -311,7 +334,21 @@
                 var name = $("#name input").val();
 
                 //向后台传送数据
-
+				$.ajax({
+                    type:"post",
+					url:"/updataUsername/",
+					data:{username:$("#name input").val(),userId:'$!{user.userId}'},
+					dataType:"json",
+					success:function (data) {
+						if(data.code == 1){
+						    alert(data.msg);
+						}
+						else{
+						    alert(data.msg);
+						    window.location.href = "/self/";
+						}
+                    }
+				})
 
 
                 //切换输入框为值
@@ -335,7 +372,21 @@
                 var gender = $("#gender input[name='sex']:checked").val();
 
                 //向后台传送数据
-
+                $.ajax({
+                    url:"/updataGender/",
+                    type:"post",
+                    data:{Gender:$("#gender input[name='sex']:checked").val(),userId:'$!{user.userId}'},
+                    dataType:"json",
+                    success:function (data) {
+                        if(data.code == 1){
+                            alert(data.msg);
+                        }
+                        else{
+                            alert("修改成功");
+                            window.location.href = "/self/";
+                        }
+                    }
+                })
 
 
                 //切换输入框为值
@@ -359,7 +410,21 @@
                 var tel = $("#tel input").val();
 
                 //向后台传送数据
-
+                $.ajax({
+                    url:"/updataTel/",
+                    type:"post",
+                    data:{Tel:$("#tel input").val(),userId:'$!{user.userId}'},
+                    dataType:"json",
+                    success:function (data) {
+                        if(data.code == 1){
+                            alert(data.msg);
+                        }
+                        else{
+                            alert("修改成功");
+                            window.location.href = "/self/";
+                        }
+                    }
+                })
 
 
                 //切换输入框为值

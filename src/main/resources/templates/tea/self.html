@@ -212,7 +212,7 @@
 							</p>
 							<p id="gender">
 								<span class="filed-name">性别：</span>
-								<span class="name-show">
+								<span class="gender-show">
 									#if ($user.Gender)
 									<span class="filed-value">$!{user.Gender}</span>
 									#else
@@ -220,8 +220,9 @@
 									#end
 									<a href="javascript:void(0);">修改</a>
 								</span>
-								<span class="name-modify" style="display: none;">
-									<input type="text" placeholder="" />
+								<span class="gender-modify" style="display: none;">
+									<input type="radio" name="sex" value="0" />男&nbsp;&nbsp;
+									<input type="radio" name="sex" value="1" />女&nbsp;
 									<button type="button">确认</button>
 								</span>
 							</p>
@@ -305,7 +306,21 @@
                 var name = $("#name input").val();
 
                 //向后台传送数据
-
+                $.ajax({
+                    type:"post",
+                    url:"/updataUsername/",
+                    data:{username:$("#name input").val(),userId:'$!{user.userId}'},
+                    dataType:"json",
+                    success:function (data) {
+                        if(data.code == 1){
+                            alert(data.msg);
+                        }
+                        else{
+                            alert(data.msg);
+                            window.location.href = "/tself/";
+                        }
+                    }
+                })
 
 
                 //切换输入框为值
@@ -329,7 +344,21 @@
                 var gender = $("#gender input[name='sex']:checked").val();
 
                 //向后台传送数据
-
+                $.ajax({
+                    url:"/updataGender/",
+                    type:"post",
+                    data:{Gender:$("#gender input[name='sex']:checked").val(),userId:'$!{user.userId}'},
+                    dataType:"json",
+                    success:function (data) {
+                        if(data.code == 1){
+                            alert(data.msg);
+                        }
+                        else{
+                            alert("修改成功");
+                            window.location.href = "/self/";
+                        }
+                    }
+                })
 
 
                 //切换输入框为值
@@ -353,7 +382,21 @@
                 var tel = $("#tel input").val();
 
                 //向后台传送数据
-
+                $.ajax({
+                    url:"/updataTel/",
+                    type:"post",
+                    data:{Tel:$("#tel input").val(),userId:'$!{user.userId}'},
+                    dataType:"json",
+                    success:function (data) {
+                        if(data.code == 1){
+                            alert(data.msg);
+                        }
+                        else{
+                            alert("修改成功");
+                            window.location.href = "/tself/";
+                        }
+                    }
+                })
 
 
                 //切换输入框为值
