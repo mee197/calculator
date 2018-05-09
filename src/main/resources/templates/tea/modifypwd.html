@@ -138,10 +138,19 @@
 				$.ajax({
 					type:"post",
 					url:"/modifypwd/",
-					data:{userId:'$!{user.userId}'},
+					data:{userId:'$!{user.userId}',
+					      password:$("#password").val(),
+                          repassword:$("#repassword").val(),
+						  newpassword:$("#newpassword").val()},
 					dataType:"json",
 					success:function (data) {
-						alert(date.userId);
+					    if(data.code == 1){
+					        alert(data.msg);
+						}
+						else{
+					        alert("code状态是0");
+					        window.location.href = "/tea/index";
+						}
                     }
 					})
             })

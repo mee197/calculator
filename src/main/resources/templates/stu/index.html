@@ -147,7 +147,7 @@
 					<div class="info-module">
 						<div class="info-module-body">
 							<p><span class="text-info">  $!{user.username}  </span>小朋友，</p>
-							<p>你已经来这儿<span class="text-primary">  $!{user.LoginTime}  </span>天了，</p>
+							<p>你已经来这儿<span class="text-primary">$date.format('yyyy-MM-dd HH:mm:ss',$!{user.LoginTime})</span>天了，</p>
 							<p>总共做了<span class="text-warning">  12 </span>道题目，</p>
 							<p>完成了<span class="text-success">  8  </span>次考试，</p>
 							<p>重做了<span class="text-">  8  </span>道错题，</p>

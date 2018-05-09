@@ -12965,7 +12965,7 @@ footer .middot:before {
 }
 
 footer .pf {
-	background-image: url("../img/pf-logo.png");
+	background-image: url("/images/pf-logo.png");
 	width: 200px;
 	height: 73px;
 	background-repeat: no-repeat;
@@ -12984,7 +12984,7 @@ footer .pf {
 (min-resolution: 138dpi),
 (min-resolution: 1.5dppx) {
 	footer .pf {
-		background-image: url("../img/pf-logo@2x.png");
+		background-image: url("/images/pf-logo@2x.png");
 		-webkit-background-size: 159px 73px;
 		-moz-background-size: 159px 73px;
 		background-size: 159px 73px;
@@ -13046,7 +13046,7 @@ footer .pf .spacer {
 (min-resolution: 1.5dppx) {
 	#error #error-page .container,
 	#other #error-page .container {
-		background-image: url("../img/books@2x.png");
+		background-image: url("/images/books@2x.png");
 		-webkit-background-size: 748px 161px;
 		-moz-background-size: 748px 161px;
 		background-size: 748px 161px;

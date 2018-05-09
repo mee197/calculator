@@ -186,7 +186,7 @@
 						<div class="info-body">
 							<p id="">
 								<span class="filed-name">账号：</span>
-								<span class="filed-value">js001272</span>
+								<span class="filed-value">$!{user.userId}</span>
 							</p>
 							<p id="">
 								<span class="filed-name">姓名：</span>
@@ -204,8 +204,13 @@
 								<a href="">修改</a>
 							</p>
 							<p id="">
+								#if ($user.Tel)
 								<span class="filed-name">电话：</span>
 								<span class="filed-value">$!{user.Tel}</span>
+								#else
+								<span class="filed-name">电话：</span>
+								<span class="filed-value">还没有填写</span>
+								#end
 								<a href="">修改</a>
 							</p>
 						</div>

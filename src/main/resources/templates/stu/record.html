@@ -60,27 +60,35 @@
 	</head>
 
 	<body>
-	<div class="navright">
-		<!--右侧功能-->
-		<ul class="nav-topic">
-			<li id="item">
-				<a id="nav-index" class="nav-active" href="/stu/index">首页</a>
-			</li>
-			<li id="item">
-				<a id="nav-exams" href="/exam/">我要考试</a>
-			</li>
-			<li id="item">
-				<a id="nav-exercise" href="/topic/">我要做题</a>
-			</li>
-			<li id="item">
-				<a id="nav-scoreboard" href="/rank/">积分榜</a>
-			</li>
-			<li id="item">
-				<a id="nav-games" href="/game/">玩游戏</a>
-			</li>
-			<li id="item">
-				<!--我的和注销-->
-				<span class="self">
+	<!--导航条-->
+	<div class="selfnav">
+		<!--左侧logo及站名-->
+		<div class="navleft">
+			<img src="/images/logo.png" />
+		</div>
+
+		<!--右侧功能导航与个人中心-->
+		<div class="navright">
+			<!--右侧功能-->
+			<ul class="nav-topic">
+				<li id="item">
+					<a id="nav-index" class="nav-active" href="/stu/index">首页</a>
+				</li>
+				<li id="item">
+					<a id="nav-exams" href="/exam/">我要考试</a>
+				</li>
+				<li id="item">
+					<a id="nav-exercise" href="/topic/">我要做题</a>
+				</li>
+				<li id="item">
+					<a id="nav-scoreboard" href="/rank/">积分榜</a>
+				</li>
+				<li id="item">
+					<a id="nav-games" href="/game/">玩游戏</a>
+				</li>
+				<li id="item">
+					<!--我的和注销-->
+					<span class="self">
 								你好！
 								<a href="#">$!{user.username}</a>
 								<ul class="infomodels">
@@ -95,9 +103,9 @@
 					</li>
 				</ul>
 				</span>
-			</li>
-		</ul>
-	</div>
+				</li>
+			</ul>
+		</div>
 	</div>
 
 		<!--主页内容-->
