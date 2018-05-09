@@ -96,7 +96,7 @@ function caculatortime() {
 		
 		
 		//跳转至主页
-		window.location = "../index.html";
+        window.location.href = "/stu/index";
 	}
 }
 
@@ -111,5 +111,5 @@ $(".game-exit").click(function() {
 	
 
 	//跳转至主页
-	window.location = "../index.html";
+    window.location.href = "/stu/index";
 });
