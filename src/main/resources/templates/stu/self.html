@@ -105,6 +105,16 @@
 				font-weight: 600;
 				font-size: 22px;
 			}
+
+			.info-body #name input,
+			.info-body #tel input{
+				width: 200px;
+			}
+
+			.info-body #gender input{
+				width: 20px;
+				height: 20px;
+			}
 			
 			.info-body .filed-name {
 				color: gray;
@@ -182,10 +192,8 @@
 						<div class="photo-body">
 							<img id="picture" src="/images/user.jpg" />
 							<div class="user-file-outwrap">
-								<form  method="post" id="imgform" enctype="multipart/form-data" action="/uploadimg//">
-								<div class="user-file-wrap"><input type="file" id="img_file" class="file"></div>
-								<button id = "upload" type="button" class="btn btn-primary">上传头像</button>
-								</form>
+								<div class="user-file-wrap"><input type="file" class="file"></div>
+								<button type="button" class="btn btn-primary">上传头像</button>
 							</div>
 						</div>
 					</div>
@@ -198,33 +206,47 @@
 							</p>
 							<p id="name">
 								<span class="filed-name">姓名：</span>
-								<span class="filed-value">杨子琪</span>
-								<a href="">修改</a>
+
+								<span class="name-show">
+									<span class="filed-value" id="username">$!{user.username}</span>
+									<a href="javascript:void(0);">修改</a>
+								</span>
+								<span class="name-modify" style="display: none;">
+									<input type="text" placeholder="" />
+									<button type="button">确认</button>
+								</span>
 							</p>
 							<p id="gender">
-								#if ($user.Gender)
 								<span class="filed-name">性别：</span>
-								<span class="filed-value">$!{user.Gender}</span>
-								#else
-								<span class="filed-name">性别：</span>
-								<span class="filed-value">还没有填写</span>
-								#end
-								<a href="">修改</a>
+									<span class="name-show">
+									#if ($user.Gender)
+									<span class="filed-value">$!{user.Gender}</span>
+									#else
+									<span class="filed-value">还没有填写</span>
+									#end
+									<a href="javascript:void(0);">修改</a>
+								</span>
+								<span class="name-modify" style="display: none;">
+									<input type="text" placeholder="" />
+									<button type="button">确认</button>
+								</span>
 							</p>
-							<p id="">
-								#if ($user.Tel)
+							<p id="tel">
 								<span class="filed-name">电话：</span>
-								<span class="filed-value">$!{user.Tel}</span>
-								#else
-								<span class="filed-name">电话：</span>
-								<span class="filed-value">还没有填写</span>
-								#end
-								<a href="">修改</a>
+
+								<span class="tel-show">
+									<span class="filed-value" id="telephone">$!{user.Tel}</span>
+									<a href="javascript:void(0);">修改</a>
+								</span>
+								<span class="tel-modify" style="display: none;">
+									<input type="number" placeholder="" />
+									<button type="button">确认</button>
+								</span>
 							</p>
 							<p id="">
 								<span class="filed-name">积分：</span>
 								<span class="filed-value">0</span>
-								<a href="/record/">查看记录</a>
+								<a href="/r/">查看记录</a>
 							</p>
 						</div>
 					</div>
@@ -244,41 +266,106 @@
 			 * 图片文件预览及上传
 			 */
 			$(".file").change(function() {
-                var formdata=new FormData();
-                //formdata.append('name', 'uploadImage');
-                formdata.append('file',$('#img_file').get(0).files[0]);
-                $.ajax({
-                    url:'/uploadimg/',
-                    type:'post',
-                    contentType:false,
-                    data:formdata,
-                    processData:false,
-                    success:function(data){
-                        console.log(data)
-                        alert(data.msg);
-                    }
-                });
-
+				var objUrl = getObjectURL(this.files[0]);
+				//图片预览
+				if(objUrl) {
+					$("#picture").attr("src", objUrl);
+				}
+				
+				//图片上传
+				
 			});
 			
-			// /**
-			//  * 建立一个可存取到该file的url
-			//  *
-			//  * @param {Object} file
-			//  */
-			// function getObjectURL(file) {
-			// 	var url = null;
-			// 	if(window.createObjectURL != undefined) { // basic
-			// 		url = window.createObjectURL(file);
-			// 	} else if(window.URL != undefined) {
-			// 		// mozilla(firefox)
-			// 		url = window.URL.createObjectURL(file);
-			// 	} else if(window.webkitURL != undefined) {
-			// 		// webkit or chrome
-			// 		url = window.webkitURL.createObjectURL(file);
-			// 	}
-			// 	return url;
-			// }
+			/**
+			 * 建立一个可存取到该file的url
+			 * 
+			 * @param {Object} file
+			 */
+			function getObjectURL(file) {
+				var url = null;
+				if(window.createObjectURL != undefined) { // basic
+					url = window.createObjectURL(file);
+				} else if(window.URL != undefined) {
+					// mozilla(firefox)
+					url = window.URL.createObjectURL(file);
+				} else if(window.webkitURL != undefined) {
+					// webkit or chrome
+					url = window.webkitURL.createObjectURL(file);
+				}
+				return url;
+			}
+
+            /**
+             * 点击"修改"用户名切换至输入框
+             */
+            $("#name a").click(function() {
+                $("#name .name-show").css("display","none");
+                $("#name .name-modify").css("display","inline-block");
+            });
+
+            /**
+             * 确认修改用户名
+             */
+            $("#name button").click(function(){
+                //获取用户输入的用户名
+                var name = $("#name input").val();
+
+                //向后台传送数据
+
+
+
+                //切换输入框为值
+                $("#name .name-modify").css("display","none");
+                $("#name .name-show").css("display","inline-block");
+            });
+
+            /**
+             * 点击"修改"性别切换至输入框
+             */
+            $("#gender a").click(function() {
+                $("#gender .gender-show").css("display","none");
+                $("#gender .gender-modify").css("display","inline-block");
+            });
+
+            /**
+             * 点击修改性别
+             */
+            $("#gender button").click(function(){
+                //获取用户的性别
+                var gender = $("#gender input[name='sex']:checked").val();
+
+                //向后台传送数据
+
+
+
+                //切换输入框为值
+                $("#gender .gender-modify").css("display","none");
+                $("#gender .gender-show").css("display","inline-block");
+            });
+
+            /**
+             * 点击"修改"联系方式切换至输入框
+             */
+            $("#tel a").click(function() {
+                $("#tel .tel-show").css("display","none");
+                $("#tel .tel-modify").css("display","inline-block");
+            });
+
+            /**
+             * 确认修改联系方式
+             */
+            $("#tel button").click(function(){
+                //获取用户输入的联系方式
+                var tel = $("#tel input").val();
+
+                //向后台传送数据
+
+
+
+                //切换输入框为值
+                $("#tel .tel-modify").css("display","none");
+                $("#tel .tel-show").css("display","inline-block");
+            });
 		</script>
 	</body>
 

@@ -1,105 +1,105 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>好学堂</title>
-		<!--<link rel="stylesheet" href="../../static/css/bootstrap.min.css" />-->
-		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" href="/styles/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="/styles/css/nav.css" />
-		<!--<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">-->
-		<style>
-			.makepaper-body {
-				max-width: 1000px;
-				margin: 40px auto 0;
-				/*border: 1px solid saddlebrown;*/
-			}
-			
-			.paper-body {}
-			
-			.paper-header {
-				height: 40px;
-			}
-			
-			.paper-header .header-left {
-				float: left;
-			}
-			
-			.paper-header .header-right {
-				float: right;
-			}
-			
-			.paper-make {
-				margin-bottom: 20px;
-			}
-			
-			.question-card {
-				margin-bottom: 10px;
-				width: 100%;
-				background-color: #FAFAFA;
-				border: 1px solid #e6ebf5;
-				text-align: left;
-				font-size: 18px;
-			}
-			
-			.question-card .question-card-header {
-				border-left: 10px solid #ffc107;
-				padding-left: 20px;
-				height: 40px;
-				background-color: #EEEEEE;
-				line-height: 40px;
-			}
-			
-			.question-card .question-card-body {
-				margin-top: 10px;
-				padding-left: 30px;
-			}
-			
-			.question-card-body select {
-				margin-bottom: 10px;
-			}
-			
-			.paper-info {
-				margin-bottom: 60px;
-				width: 100%;
-				border: 1px solid #e6ebf5;
-			}
-			
-			.paper-info .info-title {
-				margin: 20px 0;
-				font-size: 24px;
-				letter-spacing: 20px;
-			}
-			
-			.paper-info .info-content {
-				text-align: center;
-				font-size: 22px;
-			}
-			
-			.paper-footer {
-				position: fixed;
-				left: 0;
-				bottom: 0;
-				width: 100%;
-				height: 40px;
-				line-height: 40px;
-				border: 1px solid #e6ebf5;
-				background-color: #ffc107;
-				font-size: 24px;
-				letter-spacing: 5px;
-			}
-			
-			.paper-footer a{
-				display: block;
-				width: 100%;
-				height: 100%;
-				color: gray;
-			}
-			
-			.paper-footer a:hover{
-				color: white;
-			}
+<head>
+	<meta charset="UTF-8">
+	<title>好学堂</title>
+	<!--<link rel="stylesheet" href="../../static/css/bootstrap.min.css" />-->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="../../static/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="../../static/css/nav.css" />
+	<!--<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">-->
+	<style>
+		.makepaper-body {
+			max-width: 1000px;
+			margin: 40px auto 0;
+			/*border: 1px solid saddlebrown;*/
+		}
+
+		.paper-body {}
+
+		.paper-header {
+			height: 40px;
+		}
+
+		.paper-header .header-left {
+			float: left;
+		}
+
+		.paper-header .header-right {
+			float: right;
+		}
+
+		.paper-make {
+			margin-bottom: 20px;
+		}
+
+		.question-card {
+			margin-bottom: 10px;
+			width: 100%;
+			background-color: #FAFAFA;
+			border: 1px solid #e6ebf5;
+			text-align: left;
+			font-size: 18px;
+		}
+
+		.question-card .question-card-header {
+			border-left: 10px solid #ffc107;
+			padding-left: 20px;
+			height: 40px;
+			background-color: #EEEEEE;
+			line-height: 40px;
+		}
+
+		.question-card .question-card-body {
+			margin-top: 10px;
+			padding-left: 30px;
+		}
+
+		.question-card-body select {
+			margin-bottom: 10px;
+		}
+
+		.paper-info {
+			margin-bottom: 60px;
+			width: 100%;
+			border: 1px solid #e6ebf5;
+		}
+
+		.paper-info .info-title {
+			margin: 20px 0;
+			font-size: 24px;
+			letter-spacing: 20px;
+		}
+
+		.paper-info .info-content {
+			text-align: center;
+			font-size: 22px;
+		}
+
+		.paper-footer {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			border: 1px solid #e6ebf5;
+			background-color: #ffc107;
+			font-size: 24px;
+			letter-spacing: 5px;
+		}
+
+		.paper-footer a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			color: gray;
+		}
+
+		.paper-footer a:hover {
+			color: white;
+		}
 		</style>
 		<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 		<!--<script type="text/javascript" src="../../static/js/jquery.min.js"></script>-->
@@ -112,47 +112,47 @@
 
 	<body>
 
-	<!--导航条-->
-	<div class="selfnav">
-		<!--左侧logo及站名-->
-		<div class="navleft">
-			<img src="/images/logo.png" />
-		</div>
+		<!--导航条-->
+		<div class="selfnav">
+			<!--左侧logo及站名-->
+			<div class="navleft">
+				<img src="/images/logo.png" />
+			</div>
 
-		<!--右侧功能导航与个人中心-->
-		<div class="navright">
-			<!--右侧功能-->
-			<ul class="nav-topic">
-				<li id="item">
-					<a id="nav-index" class="nav-active" href="/tea/index">首页</a>
-				</li>
-				<li id="item">
-					<a id="nav-exams" href="/ttopic/">我要出题</a>
-				</li>
-				<li id="item">
-					<a id="nav-exams" href="/trank/">积分榜</a>
-				</li>
-				<li id="item">
-					<!--我的和注销-->
-					<span class="self">
-								您好！
-								<a href="#">$!{user.username}</a>
-								<ul class="infomodels">
-									<li>
-						<a href="/tself/">个人中心</a>
+			<!--右侧功能导航与个人中心-->
+			<div class="navright">
+				<!--右侧功能-->
+				<ul class="nav-topic">
+					<li id="item">
+						<a id="nav-index" class="nav-active" href="/tea/index">首页</a>
 					</li>
-					<li>
-						<a href="/tmodify/">修改密码</a>
+					<li id="item">
+						<a id="nav-exams" href="/ttopic/">我要出题</a>
 					</li>
-					<li>
-						<a href="/logout/">退出</a>
+					<li id="item">
+						<a id="nav-exams" href="/trank/">积分榜</a>
+					</li>
+					<li id="item">
+						<!--我的和注销-->
+						<span class="self">
+									您好！
+									<a href="#">$!{user.username}</a>
+									<ul class="infomodels">
+										<li>
+							<a href="/tself/">个人中心</a>
+						</li>
+						<li>
+							<a href="/tmodify/">修改密码</a>
+						</li>
+						<li>
+							<a href="/logout/">退出</a>
+						</li>
+					</ul>
+					</span>
 					</li>
 				</ul>
-				</span>
-				</li>
-			</ul>
+			</div>
 		</div>
-	</div>
 
 		<!--主页内容-->
 		<div class="page-body">
@@ -206,12 +206,12 @@
 											<input type="checkbox" id="decomposition" disabled>退位
 										</label>
 									</div>
-									<div>
+									<div style="display: none;">
 										<label>
 											<input type="checkbox" id="multiplication">乘法
 										</label>
 									</div>
-									<div>
+									<div style="display: none;">
 										<label>
 											<input type="checkbox" id="division">除法
 										</label>
@@ -227,18 +227,18 @@
 										<input type="number" id="qty_2" value="0" disabled>
 									</div>
 									<div>
-										<label><input type="checkbox" id="composite_3" onchange="setQty(this, 'qty_3', 10)">题型2: 三个数连续计算</label>，
+										<label><input type="checkbox" id="composite_3" onchange="setQty(this, 'qty_3', 10)">题型2: 三个数计算</label>，
 										<i>例如：1+2+3=</i>，题目数量：
 										<input type="number" id="qty_3" value="0" disabled>
 									</div>
-									<div>
+									<div style="display: none;">
 										<label><input type="checkbox" id="composite_4" onchange="setQty(this, 'qty_4', 10)">题型3: 四个数平衡式</label>，
 										<i>例如：1+6=3+()</i>，题目数量：
 										<input type="number" id="qty_4" value="0" disabled>
 									</div>
 								</div>
 							</div>
-							<div class="question-card">
+							<div class="question-card" style="display: none;">
 								<!--<input type="checkbox" id="add_diff" onchange="setQty(this, 'diff_blank', 0);setQty(this, 'diff_iq', 0)" checked style="display:none;">-->
 								<div class="question-card-header"><strong>其中</strong></div>
 								<div class="question-card-body">
@@ -309,7 +309,7 @@
 
 				<!--提交试卷按钮-->
 				<div class="paper-footer">
-					<a href="index.html">提交试卷</a>
+					<a id="paper-commit" href="javascript:void(0);">提交试卷</a>
 				</div>
 
 			</div>
@@ -319,8 +319,51 @@
 		<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.loli.net/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
 		<!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
-		<script type="text/javascript" src="/scripts/nav.js"></script>
-		<script type="text/javascript" src="/scripts/paper.js"></script>
+		<script type="text/javascript" src="../../static/js/nav.js"></script>
+		<script type="text/javascript" src="../../static/js/paper.js"></script>
+		<script>
+			/**
+			 * 提交试题
+			 */
+			$("#paper-commit").click(function() {
+				var sub = [];
+				var kk = 0;
+				//				console.log(ra);
+				for(var ii = 0; ii < ra.length; ii++) {
+					var arr = ra[ii];
+					for(var jj = 0; jj < arr.length; jj++) {
+						sub[kk] = arr[jj];
+						//						console.log(sub[kk]);
+						kk++;
+					}
+				}
+
+				//试卷题目
+				var json_sub = JSON.stringify(sub);
+				//				console.log(json_sub);
+
+				//向后台传送数据
+				$.ajax({
+					type: "post",
+					url: "",
+					contentType: 'application/json;charset=utf-8',
+					async: true, //异步
+					data: {
+						topic:json_sub
+					},
+		//					dataType: "json", //设置需要返回的数据类型
+					success: function(data) {
+
+					},
+					error: function() {
+
+					}
+				});
+
+				//跳转到教师首页
+
+			});
+		</script>
 	</body>
 
 </html>
